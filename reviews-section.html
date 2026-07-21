@@ -20,8 +20,11 @@
 .rvtxt{font-size:.93em;line-height:1.6;color:#3d3d4e;margin:0 0 12px}
 .rvdate{font-size:.83em;color:#9aa2b1}
 .rv-hidden{display:none}
+#rvToggle{display:none}
+#rvToggle:checked~.rvgrid .rv-hidden{display:inline-block}
+#rvToggle:checked~.rvmorew{display:none}
 .rvmorew{text-align:center;margin:30px 0 4px}
-#rvMoreBtn{background:#111;color:#fff;font-size:1em;font-weight:600;padding:14px 38px;border:none;border-radius:8px;cursor:pointer;font-family:inherit;transition:background .15s ease}
+#rvMoreBtn{display:inline-block;background:#111;color:#fff;font-size:1em;font-weight:600;padding:14px 38px;border:none;border-radius:8px;cursor:pointer;font-family:inherit;transition:background .15s ease;user-select:none}
 #rvMoreBtn:hover{background:#333}
 @media(max-width:640px){.rvgrid{columns:1}.rvhead h2{font-size:1.5em}}
 </style>
@@ -30,6 +33,7 @@
 <h2>What Our Customers Say</h2>
 <div class="rvavg">★★★★★ 4.9/5 <small>— Based on 23,768+ Verified Reviews</small></div>
 </div>
+<input type="checkbox" id="rvToggle">
 <div class="rvgrid" id="rvGrid">
 <!-- ارفع صور الريفيوهات على Shopify Admin > Content > Files بنفس الأسماء دي بالظبط:
 review-rebecca.jpg / review-eugene.jpg / review-sara.jpg / review-paul.jpg / review-john.jpg
@@ -243,17 +247,98 @@ review-maestro.jpg / review-nicole.jpg / review-louis.jpg / review-alexander.jpg
 <span class="rvdate">02/06/2024</span>
 </div>
 </div>
+<div class="rvcard rv-hidden">
+<div class="rvstars">★★★★★</div>
+<div class="rvbody">
+<div class="rvuser"><span class="rvav">D<b>✓</b></span><span class="rvname">Dorothy M</span></div>
+<p class="rvtxt">I was skeptical at first because of the price, but these work better than my husband's $3,500 pair. I can finally hear my grandchildren on the phone again.</p>
+<span class="rvdate">03/14/2024</span>
 </div>
-<div class="rvmorew"><button id="rvMoreBtn" type="button">Load more</button></div>
+</div>
+<div class="rvcard rv-hidden">
+<div class="rvstars">★★★★★</div>
+<div class="rvbody">
+<div class="rvuser"><span class="rvav">F<b>✓</b></span><span class="rvname">Frank B</span></div>
+<p class="rvtxt">The H and L modes are exactly what I needed. I use L at home and H at church, and I can follow every word of the sermon now.</p>
+<span class="rvdate">04/02/2024</span>
+</div>
+</div>
+<div class="rvcard rv-hidden">
+<div class="rvstars">★★★★★</div>
+<div class="rvbody">
+<div class="rvuser"><span class="rvav">C<b>✓</b></span><span class="rvname">Carol S</span></div>
+<p class="rvtxt">Charged them overnight and they lasted me two full days. No more fiddling with those tiny batteries my old aids used.</p>
+<span class="rvdate">03/22/2024</span>
+</div>
+</div>
+<div class="rvcard rv-hidden">
+<div class="rvstars">★★★★<span class="off">★</span></div>
+<div class="rvbody">
+<div class="rvuser"><span class="rvav">W<b>✓</b></span><span class="rvname">Walter P</span></div>
+<p class="rvtxt">Took me a couple of days to get the fit right, but once I did they're very comfortable. Sound is clear even at the diner with all the noise.</p>
+<span class="rvdate">05/10/2024</span>
+</div>
+</div>
+<div class="rvcard rv-hidden">
+<div class="rvstars">★★★★★</div>
+<div class="rvbody">
+<div class="rvuser"><span class="rvav">B<b>✓</b></span><span class="rvname">Betty J</span></div>
+<p class="rvtxt">My tinnitus has bothered me for years. With these on, the ringing fades into the background. I wish I'd found them sooner.</p>
+<span class="rvdate">04/18/2024</span>
+</div>
+</div>
+<div class="rvcard rv-hidden">
+<div class="rvstars">★★★★★</div>
+<div class="rvbody">
+<div class="rvuser"><span class="rvav">R<b>✓</b></span><span class="rvname">Raymond K</span></div>
+<p class="rvtxt">Set up was simple, no app or bluetooth nonsense. Opened the case, put them in, turned the dial. My kind of product.</p>
+<span class="rvdate">05/27/2024</span>
+</div>
+</div>
+<div class="rvcard rv-hidden">
+<div class="rvstars">★★★★★</div>
+<div class="rvbody">
+<div class="rvuser"><span class="rvav">H<b>✓</b></span><span class="rvname">Helen G</span></div>
+<p class="rvtxt">I wear glasses and was worried they wouldn't fit together, but I honestly forget I have them on. Nobody at bridge club even noticed.</p>
+<span class="rvdate">06/03/2024</span>
+</div>
+</div>
+<div class="rvcard rv-hidden">
+<div class="rvstars">★★★★★</div>
+<div class="rvbody">
+<div class="rvuser"><span class="rvav">A<b>✓</b></span><span class="rvname">Arthur D</span></div>
+<p class="rvtxt">Had a small issue with the left one and Jess from support called me the next day and sorted it out. That kind of service is rare these days.</p>
+<span class="rvdate">06/15/2024</span>
+</div>
+</div>
+<div class="rvcard rv-hidden">
+<div class="rvstars">★★★★<span class="off">★</span></div>
+<div class="rvbody">
+<div class="rvuser"><span class="rvav">J<b>✓</b></span><span class="rvname">Joyce W</span></div>
+<p class="rvtxt">Good sound for the price. Not quite the same as my audiologist's pair, but at $97 versus $4,000 it's not even a fair comparison.</p>
+<span class="rvdate">06/28/2024</span>
+</div>
+</div>
+<div class="rvcard rv-hidden">
+<div class="rvstars">★★★★★</div>
+<div class="rvbody">
+<div class="rvuser"><span class="rvav">E<b>✓</b></span><span class="rvname">Ernest T</span></div>
+<p class="rvtxt">The TV volume is back down to normal and my wife couldn't be happier. Best money I've spent in years.</p>
+<span class="rvdate">07/05/2024</span>
+</div>
+</div>
+</div>
+<div class="rvmorew"><label id="rvMoreBtn" for="rvToggle">Load more</label></div>
 </div>
 <script>
 (function(){
 var btn=document.getElementById('rvMoreBtn');
 if(!btn)return;
-btn.addEventListener('click',function(){
+btn.addEventListener('click',function(e){
+e.preventDefault();
 var hidden=document.querySelectorAll('#rvGrid .rv-hidden');
 for(var i=0;i<8&&i<hidden.length;i++){hidden[i].classList.remove('rv-hidden');}
-if(document.querySelectorAll('#rvGrid .rv-hidden').length===0){btn.style.display='none';}
+if(document.querySelectorAll('#rvGrid .rv-hidden').length===0){btn.parentNode.style.display='none';}
 });
 })();
 </script>

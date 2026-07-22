@@ -130,3 +130,65 @@
 </div>
 </div>
 </div>
+<!-- Social Proof Popup -->
+<style>
+.sp-pop{position:fixed;bottom:20px;left:20px;z-index:9999;display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e8e8e8;border-left:5px solid #1a6b8a;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.18);padding:14px 38px 14px 16px;max-width:350px;font-family:Verdana,Tahoma,'Segoe UI',Arial,sans-serif;font-size:14px;color:#222;opacity:0;transform:translateY(25px);transition:opacity .45s,transform .45s;pointer-events:none}
+.sp-pop.sp-show{opacity:1;transform:translateY(0);pointer-events:auto}
+.sp-pop img{width:54px;height:54px;border-radius:10px;object-fit:cover;flex-shrink:0}
+.sp-name{font-weight:bold;color:#0f2f3d;line-height:1.4}
+.sp-prod{color:#333;line-height:1.4}
+.sp-meta{color:#888;font-size:.85em;margin-top:4px}
+.sp-meta .sp-check{color:#2e9e5b;font-weight:bold}
+.sp-close{position:absolute;top:4px;right:10px;border:none;background:none;font-size:18px;color:#aaa;cursor:pointer;padding:2px;line-height:1}
+.sp-close:hover{color:#555}
+@media(max-width:600px){.sp-pop{left:10px;right:10px;bottom:10px;max-width:none}}
+</style>
+<div class="sp-pop" id="spPop">
+<img src="https://cdn.shopify.com/s/files/1/0655/0913/0319/files/42920e2e-96cf-4f2d-b598-8f1fc9133c64-min_d27d6081-8049-467f-871c-2351fc6d3eea.webp?v=1781984811" alt="TruHear Slim">
+<div>
+<div class="sp-name" id="spName"></div>
+<div class="sp-prod">purchased <strong>TruHear Slim Hearing Aids</strong></div>
+<div class="sp-meta"><span class="sp-check">&#10004;</span> Verified order &middot; <span id="spTime"></span></div>
+</div>
+<button class="sp-close" id="spClose" aria-label="Close">&times;</button>
+</div>
+<script>
+(function(){
+/* IMPORTANT: replace this list with data from your real store orders
+   (name initial + city/state + actual order time). */
+var orders=[
+{name:"Margaret from Dallas, TX",time:"8 minutes ago"},
+{name:"Robert from Phoenix, AZ",time:"14 minutes ago"},
+{name:"Linda from Tampa, FL",time:"23 minutes ago"},
+{name:"James from Columbus, OH",time:"31 minutes ago"},
+{name:"Barbara from San Antonio, TX",time:"42 minutes ago"},
+{name:"William from Charlotte, NC",time:"56 minutes ago"},
+{name:"Patricia from Las Vegas, NV",time:"1 hour ago"},
+{name:"Richard from Portland, OR",time:"1 hour ago"},
+{name:"Susan from Kansas City, MO",time:"2 hours ago"},
+{name:"Thomas from Jacksonville, FL",time:"2 hours ago"}
+];
+var pop=document.getElementById("spPop"),
+    nameEl=document.getElementById("spName"),
+    timeEl=document.getElementById("spTime"),
+    closeBtn=document.getElementById("spClose"),
+    i=0,stopped=false,
+    SHOW_MS=6000,          /* how long each popup stays visible */
+    FIRST_DELAY=7000,      /* delay before the first popup */
+    GAP_MIN=15000,GAP_MAX=30000; /* random gap between popups */
+orders.sort(function(){return Math.random()-.5});
+function show(){
+  if(stopped)return;
+  var o=orders[i%orders.length];i++;
+  nameEl.textContent=o.name;
+  timeEl.textContent=o.time;
+  pop.classList.add("sp-show");
+  setTimeout(function(){
+    pop.classList.remove("sp-show");
+    setTimeout(show,GAP_MIN+Math.random()*(GAP_MAX-GAP_MIN));
+  },SHOW_MS);
+}
+closeBtn.addEventListener("click",function(){stopped=true;pop.classList.remove("sp-show")});
+setTimeout(show,FIRST_DELAY);
+})();
+</script>

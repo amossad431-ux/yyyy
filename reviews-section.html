@@ -5,10 +5,10 @@
 .rvhead h2{font-size:2em;font-weight:800;margin:0 0 8px;color:#1c1c2b}
 .rvavg{color:#4a90e2;font-size:1.1em;font-weight:700;letter-spacing:1px}
 .rvavg small{color:#7a8494;font-weight:500;letter-spacing:0;font-size:.85em}
-.rvgrid{columns:4 250px;column-gap:20px;padding-top:16px}
-.rvcard{display:inline-block;width:100%;background:#fff;border-radius:16px;box-shadow:0 4px 18px rgba(20,30,60,.08);margin:0 0 22px;break-inside:avoid}
+.rvgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px;align-items:start;padding-top:16px}
+.rvcard{background:#fff;border-radius:16px;box-shadow:0 4px 18px rgba(20,30,60,.08)}
 .rvph{position:relative;border-radius:16px 16px 0 0;overflow:hidden}
-.rvph img{width:100%;display:block}
+.rvph img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
 .rvpc{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.92);color:#333;font-size:.75em;font-weight:700;padding:3px 9px;border-radius:6px}
 .rvstars{width:max-content;margin:-16px auto 12px;position:relative;z-index:2;background:#fff;border-radius:999px;padding:6px 15px;box-shadow:0 3px 10px rgba(20,30,60,.14);font-size:1.05em;line-height:1;color:#4a90e2;letter-spacing:2px}
 .rvstars .off{color:#d3dcea}
@@ -21,12 +21,12 @@
 .rvdate{font-size:.83em;color:#9aa2b1}
 .rv-hidden{display:none}
 #rvToggle{display:none}
-#rvToggle:checked~.rvgrid .rv-hidden{display:inline-block}
+#rvToggle:checked~.rvgrid .rv-hidden{display:block}
 #rvToggle:checked~.rvmorew{display:none}
 .rvmorew{text-align:center;margin:30px 0 4px}
 #rvMoreBtn{display:inline-block;background:#111;color:#fff;font-size:1em;font-weight:600;padding:14px 38px;border:none;border-radius:8px;cursor:pointer;font-family:inherit;transition:background .15s ease;user-select:none}
 #rvMoreBtn:hover{background:#333}
-@media(max-width:640px){.rvgrid{columns:1}.rvhead h2{font-size:1.5em}}
+@media(max-width:640px){.rvgrid{grid-template-columns:1fr}.rvhead h2{font-size:1.5em}}
 </style>
 <div class="rvsec">
 <div class="rvhead">
@@ -35,6 +35,7 @@
 </div>
 <input type="checkbox" id="rvToggle">
 <div class="rvgrid" id="rvGrid">
+<!-- كروت الصور الأول -->
 <div class="rvcard">
 <div class="rvph"><img src="https://cdn.shopify.com/s/files/1/0655/0913/0319/files/review-photo-4.jpg?v=1784679320" alt="Rebecca C review photo"><span class="rvpc">1 📷</span></div>
 <div class="rvstars">★★★★★</div>
@@ -42,14 +43,6 @@
 <div class="rvuser"><span class="rvav">R<b>✓</b></span><span class="rvname">Rebecca C</span></div>
 <p class="rvtxt">I love them. I did not know these came charged so waited to charge them and then put them in... Wow, they fit good and no squealing noises. I heard my hubby talk normal and yet on a lower setting, I heard him louder. The true test of course is at work.</p>
 <span class="rvdate">09/08/2024</span>
-</div>
-</div>
-<div class="rvcard">
-<div class="rvstars">★★★★★</div>
-<div class="rvbody">
-<div class="rvuser"><span class="rvav">H<b>✓</b></span><span class="rvname">Homer H</span></div>
-<p class="rvtxt">I have had my Truhear hearing aids for several days and they work as advertised. The sound is clear and there is no feedback noise. I have a pair of expensive hearing aids; but the sound quality is much better with the Truhear hearing aids. I would recommend them to anyone with hearing loss. The price is unbelievable and you won't regret the purchase.</p>
-<span class="rvdate">08/23/2024</span>
 </div>
 </div>
 <div class="rvcard">
@@ -68,14 +61,6 @@
 <div class="rvuser"><span class="rvav">S<b>✓</b></span><span class="rvname">Sara</span></div>
 <p class="rvtxt">This is my first time ordering hearing aids. I have a moderate hearing loss at the higher levels and these hearing aids have worked out great to be able to hear conversations going on all around me in group settings and in large venues. They are easy to use and fit very comfortably behind the ears, too.</p>
 <span class="rvdate">02/05/2024</span>
-</div>
-</div>
-<div class="rvcard">
-<div class="rvstars">★★★★★</div>
-<div class="rvbody">
-<div class="rvuser"><span class="rvav">M<b>✓</b></span><span class="rvname">Mike</span></div>
-<p class="rvtxt">They fit perfectly behind the ear and the sound is crystal clear. You can barely see them when I'm wearing them.</p>
-<span class="rvdate">09/08/2024</span>
 </div>
 </div>
 <div class="rvcard">
@@ -105,7 +90,7 @@
 <span class="rvdate">08/28/2024</span>
 </div>
 </div>
-<div class="rvcard rv-hidden">
+<div class="rvcard">
 <div class="rvph"><img src="https://cdn.shopify.com/s/files/1/0655/0913/0319/files/review-photo-13.jpg?v=1784679320" alt="John F review photo"><span class="rvpc">1 📷</span></div>
 <div class="rvstars">★★★★★</div>
 <div class="rvbody">
@@ -114,13 +99,48 @@
 <span class="rvdate">12/30/2023</span>
 </div>
 </div>
-<div class="rvcard rv-hidden">
+<div class="rvcard">
 <div class="rvph"><img src="https://cdn.shopify.com/s/files/1/0655/0913/0319/files/review-photo-11.jpg?v=1784679320" alt="Nicole I review photo"><span class="rvpc">1 📷</span></div>
 <div class="rvstars">★★★★★</div>
 <div class="rvbody">
 <div class="rvuser"><span class="rvav">N<b>✓</b></span><span class="rvname">Nicole I</span></div>
 <p class="rvtxt">Thank you</p>
 <span class="rvdate">12/10/2023</span>
+</div>
+</div>
+<div class="rvcard">
+<div class="rvph"><img src="https://cdn.shopify.com/s/files/1/0655/0913/0319/files/review-photo-2.jpg?v=1784679320" alt="Alexander review photo"><span class="rvpc">1 📷</span></div>
+<div class="rvstars">★★★★★</div>
+<div class="rvbody">
+<div class="rvuser"><span class="rvav">A<b>✓</b></span><span class="rvname">Alexander</span></div>
+<p class="rvtxt">I tell all my friends and family struggling with hearing loss about TruHear.</p>
+<span class="rvdate">07/26/2023</span>
+</div>
+</div>
+<div class="rvcard">
+<div class="rvph"><img src="https://cdn.shopify.com/s/files/1/0655/0913/0319/files/review-photo-1.jpg?v=1784679248" alt="Louis review photo"><span class="rvpc">1 📷</span></div>
+<div class="rvstars">★★★★★</div>
+<div class="rvbody">
+<div class="rvuser"><span class="rvav">L<b>✓</b></span><span class="rvname">Louis</span></div>
+<p class="rvtxt">The intuitive and easy to adjust TruHear hearing aids are customized perfectly to my hearing needs. Life changing!</p>
+<span class="rvdate">02/25/2023</span>
+</div>
+</div>
+<!-- الريفيوهات النصية — بتظهر مع Load more -->
+<div class="rvcard rv-hidden">
+<div class="rvstars">★★★★★</div>
+<div class="rvbody">
+<div class="rvuser"><span class="rvav">H<b>✓</b></span><span class="rvname">Homer H</span></div>
+<p class="rvtxt">I have had my Truhear hearing aids for several days and they work as advertised. The sound is clear and there is no feedback noise. I have a pair of expensive hearing aids; but the sound quality is much better with the Truhear hearing aids. I would recommend them to anyone with hearing loss. The price is unbelievable and you won't regret the purchase.</p>
+<span class="rvdate">08/23/2024</span>
+</div>
+</div>
+<div class="rvcard rv-hidden">
+<div class="rvstars">★★★★★</div>
+<div class="rvbody">
+<div class="rvuser"><span class="rvav">M<b>✓</b></span><span class="rvname">Mike</span></div>
+<p class="rvtxt">They fit perfectly behind the ear and the sound is crystal clear. You can barely see them when I'm wearing them.</p>
+<span class="rvdate">09/08/2024</span>
 </div>
 </div>
 <div class="rvcard rv-hidden">
@@ -148,15 +168,6 @@
 </div>
 </div>
 <div class="rvcard rv-hidden">
-<div class="rvph"><img src="https://cdn.shopify.com/s/files/1/0655/0913/0319/files/review-photo-2.jpg?v=1784679320" alt="Alexander review photo"><span class="rvpc">1 📷</span></div>
-<div class="rvstars">★★★★★</div>
-<div class="rvbody">
-<div class="rvuser"><span class="rvav">A<b>✓</b></span><span class="rvname">Alexander</span></div>
-<p class="rvtxt">I tell all my friends and family struggling with hearing loss about TruHear.</p>
-<span class="rvdate">07/26/2023</span>
-</div>
-</div>
-<div class="rvcard rv-hidden">
 <div class="rvstars">★★★★★</div>
 <div class="rvbody">
 <div class="rvuser"><span class="rvav">G<b>✓</b></span><span class="rvname">Glenn O</span></div>
@@ -170,15 +181,6 @@
 <div class="rvuser"><span class="rvav">V<b>✓</b></span><span class="rvname">Virgil</span></div>
 <p class="rvtxt">I can fully participate in conversations and social situations again thanks to TruHear's premium sound quality. It's been life changing.</p>
 <span class="rvdate">09/13/2023</span>
-</div>
-</div>
-<div class="rvcard rv-hidden">
-<div class="rvph"><img src="https://cdn.shopify.com/s/files/1/0655/0913/0319/files/review-photo-1.jpg?v=1784679248" alt="Louis review photo"><span class="rvpc">1 📷</span></div>
-<div class="rvstars">★★★★★</div>
-<div class="rvbody">
-<div class="rvuser"><span class="rvav">L<b>✓</b></span><span class="rvname">Louis</span></div>
-<p class="rvtxt">The intuitive and easy to adjust TruHear hearing aids are customized perfectly to my hearing needs. Life changing!</p>
-<span class="rvdate">02/25/2023</span>
 </div>
 </div>
 <div class="rvcard rv-hidden">

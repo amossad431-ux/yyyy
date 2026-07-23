@@ -2,24 +2,26 @@
 <!-- الصق الكود ده كامل في بلوك Custom HTML في Shopify -->
 
 <style>
-  /* اهتزاز الزرار */
+  /* اهتزاز الزرار — بيهتز في أول ~0.8 ثانية وبعدين يستنى (دورة كل 3 ثواني) */
   @keyframes cht-shake {
-    0%, 100%   { transform: translateX(0) rotate(0); }
-    10%        { transform: translateX(-4px) rotate(-1.5deg); }
-    20%        { transform: translateX(4px)  rotate(1.5deg);  }
-    30%        { transform: translateX(-4px) rotate(-1.5deg); }
-    40%        { transform: translateX(4px)  rotate(1.5deg);  }
-    50%        { transform: translateX(-3px) rotate(-1deg);   }
-    60%        { transform: translateX(3px)  rotate(1deg);    }
-    70%        { transform: translateX(-2px) rotate(0);       }
-    80%        { transform: translateX(2px)  rotate(0);       }
-    90%        { transform: translateX(-1px) rotate(0);       }
+    0%   { transform: translateX(0) rotate(0); }
+    3%   { transform: translateX(-4px) rotate(-1.5deg); }
+    6%   { transform: translateX(4px)  rotate(1.5deg);  }
+    9%   { transform: translateX(-4px) rotate(-1.5deg); }
+    12%  { transform: translateX(4px)  rotate(1.5deg);  }
+    15%  { transform: translateX(-3px) rotate(-1deg);   }
+    18%  { transform: translateX(3px)  rotate(1deg);    }
+    21%  { transform: translateX(-2px) rotate(0);       }
+    24%  { transform: translateX(2px)  rotate(0);       }
+    27%  { transform: translateX(-1px) rotate(0);       }
+    30%, 100% { transform: translateX(0) rotate(0); }
   }
 
-  /* نبضة خفيفة + اهتزاز مع بعض */
+  /* نبضة خفيفة مع الاهتزاز (كل 3 ثواني برضه) */
   @keyframes cht-pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(30,144,255,0.45); }
-    50%      { box-shadow: 0 0 0 12px rgba(30,144,255,0); }
+    0%   { box-shadow: 0 0 0 0 rgba(30,144,255,0.45); }
+    15%  { box-shadow: 0 0 0 12px rgba(30,144,255,0); }
+    30%, 100% { box-shadow: 0 0 0 0 rgba(30,144,255,0); }
   }
 
   /* حركة السهم (بيتحرك ناحية الزرار) */
@@ -55,7 +57,7 @@
     font-family: Georgia, serif;
     cursor: pointer;
     border: none;
-    animation: cht-shake 1.2s ease-in-out infinite, cht-pulse 1.2s ease-in-out infinite;
+    animation: cht-shake 3s ease-in-out infinite, cht-pulse 3s ease-in-out infinite;
     transform-origin: center;
   }
 

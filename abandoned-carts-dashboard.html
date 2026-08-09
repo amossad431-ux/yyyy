@@ -1,0 +1,354 @@
+<title>ليقنت · لوحة السلات المتروكة</title>
+<style>
+  :root{
+    /* Light — warm ivory boutique */
+    --bg:#F7F3EC; --surface:#FFFFFF; --surface-2:#FBF7F0; --line:#E7DECF;
+    --ink:#211C16; --ink-2:#5C5346; --muted:#8B8072;
+    --gold:#B0894B; --gold-soft:#E9DCC2; --gold-ink:#7A5C24;
+    --good:#2E8B7A; --good-soft:#D6EBE4;
+    --warn:#C6791F; --warn-soft:#F6E6CF;
+    --hot:#B5462F; --hot-soft:#F3DAD1;
+    --shadow:0 1px 2px rgba(33,28,22,.05),0 8px 24px -12px rgba(33,28,22,.14);
+  }
+  :root:not([data-theme="light"]){ }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#141009; --surface:#1E1810; --surface-2:#241D13; --line:#352B1D;
+      --ink:#F2E9D9; --ink-2:#C3B69E; --muted:#8F8368;
+      --gold:#D6B36A; --gold-soft:#3A2E18; --gold-ink:#E8C983;
+      --good:#5FBCA6; --good-soft:#183029;
+      --warn:#E0A24C; --warn-soft:#3A2C15;
+      --hot:#E0755A; --hot-soft:#3A211a;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -14px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#141009; --surface:#1E1810; --surface-2:#241D13; --line:#352B1D;
+    --ink:#F2E9D9; --ink-2:#C3B69E; --muted:#8F8368;
+    --gold:#D6B36A; --gold-soft:#3A2E18; --gold-ink:#E8C983;
+    --good:#5FBCA6; --good-soft:#183029;
+    --warn:#E0A24C; --warn-soft:#3A2C15;
+    --hot:#E0755A; --hot-soft:#3A211a;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -14px rgba(0,0,0,.6);
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Segoe UI","Tahoma",system-ui,"Helvetica Neue",Arial,sans-serif;
+    direction:rtl; line-height:1.5;
+    font-feature-settings:"kern" 1; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px; margin:0 auto; padding:24px 20px 72px}
+  .num{font-variant-numeric:tabular-nums lining-nums; letter-spacing:.01em}
+
+  /* Header */
+  header.top{
+    display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+    padding-bottom:18px; margin-bottom:22px; border-bottom:1px solid var(--line);
+  }
+  .brand{display:flex; align-items:center; gap:13px; margin-inline-end:auto}
+  .logo{
+    width:46px; height:46px; border-radius:13px; flex:none;
+    background:linear-gradient(140deg,var(--gold),var(--gold-ink));
+    display:grid; place-items:center; color:#fff; font-weight:800; font-size:20px;
+    box-shadow:var(--shadow);
+  }
+  .brand h1{font-size:19px; margin:0; font-weight:750; letter-spacing:.01em}
+  .brand p{margin:2px 0 0; font-size:12.5px; color:var(--muted)}
+  .live{
+    display:flex; align-items:center; gap:9px; padding:8px 13px;
+    background:var(--surface); border:1px solid var(--line); border-radius:11px;
+    font-size:12.5px; color:var(--ink-2); box-shadow:var(--shadow);
+  }
+  .dot{width:8px; height:8px; border-radius:50%; background:var(--good); flex:none;
+    box-shadow:0 0 0 0 var(--good); animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--good) 55%,transparent)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
+  @media (prefers-reduced-motion:reduce){.dot{animation:none}}
+  .live b{color:var(--ink); font-variant-numeric:tabular-nums}
+
+  /* KPI row */
+  .kpis{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:22px}
+  .kpi{
+    background:var(--surface); border:1px solid var(--line); border-radius:16px;
+    padding:16px 17px; box-shadow:var(--shadow); position:relative; overflow:hidden;
+  }
+  .kpi .cap{font-size:12px; color:var(--muted); font-weight:600; display:flex; align-items:center; gap:7px}
+  .kpi .big{font-size:30px; font-weight:780; margin-top:9px; line-height:1.05; letter-spacing:-.01em}
+  .kpi .sub{font-size:12px; color:var(--ink-2); margin-top:5px}
+  .kpi .unit{font-size:15px; font-weight:600; color:var(--muted)}
+  .kpi .stripe{position:absolute; inset-inline-start:0; top:0; bottom:0; width:4px}
+  .st-all{background:var(--gold)} .st-good{background:var(--good)}
+  .st-warn{background:var(--warn)} .st-hot{background:var(--hot)}
+  .tagdot{width:9px;height:9px;border-radius:50%;flex:none}
+
+  /* Funnel bar */
+  .panel{
+    background:var(--surface); border:1px solid var(--line); border-radius:16px;
+    box-shadow:var(--shadow); padding:18px 18px; margin-bottom:22px;
+  }
+  .panel > h2{font-size:14px; margin:0 0 14px; font-weight:700; display:flex; align-items:center; gap:9px}
+  .panel > h2 .hint{font-size:12px; color:var(--muted); font-weight:500; margin-inline-start:auto}
+  .fbar{display:flex; height:38px; border-radius:10px; overflow:hidden; gap:2px; background:var(--bg)}
+  .fseg{display:flex; align-items:center; justify-content:center; color:#fff; font-size:13px; font-weight:700; min-width:44px; transition:flex-basis .5s ease}
+  .fseg.warn{background:linear-gradient(180deg,var(--warn),color-mix(in srgb,var(--warn) 80%,#000))}
+  .fseg.good{background:linear-gradient(180deg,var(--good),color-mix(in srgb,var(--good) 80%,#000))}
+  .flegend{display:flex; gap:20px; margin-top:12px; flex-wrap:wrap; font-size:12.5px; color:var(--ink-2)}
+  .flegend span{display:flex; align-items:center; gap:7px}
+
+  /* Two-column tables */
+  .cols{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:22px}
+  @media (max-width:900px){.cols{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.kpis{grid-template-columns:1fr}}
+
+  .cartlist{display:flex; flex-direction:column; gap:10px}
+  .cart{
+    display:grid; grid-template-columns:auto 1fr auto; gap:12px; align-items:start;
+    padding:13px; border:1px solid var(--line); border-radius:13px; background:var(--surface-2);
+  }
+  .cart.pri{border-color:color-mix(in srgb,var(--hot) 45%,var(--line)); background:color-mix(in srgb,var(--hot-soft) 34%,var(--surface-2))}
+  .av{width:38px;height:38px;border-radius:11px;flex:none;display:grid;place-items:center;font-weight:700;font-size:15px;color:var(--gold-ink);background:var(--gold-soft)}
+  .cbody{min-width:0}
+  .cname{font-weight:680; font-size:14px; display:flex; align-items:center; gap:8px; flex-wrap:wrap}
+  .cmeta{font-size:12px; color:var(--muted); margin-top:2px; display:flex; gap:6px; flex-wrap:wrap; align-items:center}
+  .citems{font-size:12px; color:var(--ink-2); margin-top:6px; display:flex; align-items:center; gap:6px}
+  .watch{flex:none; color:var(--gold)}
+  .cright{text-align:end; flex:none; display:flex; flex-direction:column; align-items:flex-end; gap:6px}
+  .camt{font-weight:770; font-size:15.5px; white-space:nowrap}
+  .age{font-size:11px; color:var(--muted)}
+  .badge{display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:650; padding:3px 8px; border-radius:999px; white-space:nowrap}
+  .b-good{background:var(--good-soft); color:var(--good)}
+  .b-warn{background:var(--warn-soft); color:var(--warn)}
+  .b-hot{background:var(--hot-soft); color:var(--hot)}
+  .b-gold{background:var(--gold-soft); color:var(--gold-ink)}
+  .actions{display:flex; gap:7px; margin-top:8px}
+  .btn{
+    display:inline-flex; align-items:center; gap:5px; font-size:11.5px; font-weight:640;
+    padding:5px 10px; border-radius:9px; text-decoration:none; border:1px solid var(--line);
+    color:var(--ink-2); background:var(--surface); transition:all .15s;
+  }
+  .btn:hover{border-color:var(--gold); color:var(--gold-ink)}
+  .btn.wa{border-color:color-mix(in srgb,var(--good) 40%,var(--line)); color:var(--good)}
+  .coupon{font-size:11.5px; color:var(--gold-ink); background:var(--gold-soft); border-radius:8px; padding:5px 9px; display:inline-flex; align-items:center; gap:6px; font-weight:600}
+  .coupon code{font-family:"SFMono-Regular",Consolas,monospace; letter-spacing:.02em; font-weight:700}
+
+  /* Recommendations */
+  .recs{display:flex; flex-direction:column; gap:11px}
+  .rec{display:grid; grid-template-columns:auto 1fr; gap:13px; align-items:start; padding:14px 15px; border:1px solid var(--line); border-radius:13px; background:var(--surface-2)}
+  .rec .ic{width:34px;height:34px;border-radius:10px;flex:none;display:grid;place-items:center}
+  .rec h3{margin:0; font-size:13.5px; font-weight:700}
+  .rec p{margin:4px 0 0; font-size:12.5px; color:var(--ink-2)}
+  .rank{font-size:11px;color:var(--muted);font-weight:700}
+  .toplist{display:flex;flex-direction:column;gap:9px;margin-top:2px}
+  .toprow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;font-size:12.5px}
+  .tpbar{height:8px;border-radius:5px;background:linear-gradient(90deg,var(--gold),var(--gold-ink));min-width:6px}
+  .tpwrap{background:var(--bg);border-radius:5px;overflow:hidden;margin-top:4px}
+  footer{margin-top:26px;text-align:center;font-size:12px;color:var(--muted)}
+  .section-title{font-size:13px;font-weight:750;letter-spacing:.02em;color:var(--muted);text-transform:uppercase;margin:0 0 12px;display:flex;align-items:center;gap:9px}
+  .section-title::after{content:"";flex:1;height:1px;background:var(--line)}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <div class="logo">ل</div>
+      <div>
+        <h1>ليقنت · السلات المتروكة</h1>
+        <p>لوحة متابعة الاسترجاع · متجر ligant.online</p>
+      </div>
+    </div>
+    <div class="live">
+      <span class="dot"></span>
+      <span>مباشر · آخر تحديث <b id="updated">—</b></span>
+      <span style="color:var(--muted)">·</span>
+      <span>تحديث خلال <b id="count">60</b>ث</span>
+    </div>
+  </header>
+
+  <div class="kpis" id="kpis"></div>
+
+  <div class="panel">
+    <h2>مسار الاسترجاع <span class="hint">مين اتبعتله تذكير · ومين لسه</span></h2>
+    <div class="fbar" id="fbar"></div>
+    <div class="flegend" id="flegend"></div>
+  </div>
+
+  <div class="cols">
+    <div>
+      <div class="section-title">لسه محتاجة تذكير</div>
+      <div class="cartlist" id="pending"></div>
+    </div>
+    <div>
+      <div class="section-title">اتبعتلها تذكيرات</div>
+      <div class="cartlist" id="reminded"></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>المقترحات · خطوات الاسترجاع</h2>
+    <div class="recs" id="recs"></div>
+  </div>
+
+  <div class="panel">
+    <h2>أكثر المنتجات المتروكة</h2>
+    <div class="toplist" id="topprod"></div>
+  </div>
+
+  <footer>لوحة تُحدَّث تلقائيًا كل دقيقة · البيانات من سلة · القيم بالريال السعودي</footer>
+</div>
+
+<script>
+/* ===== snapshot generated at redeploy time ===== */
+const GENERATED_AT = "2026-08-09T20:31:00+03:00";
+const CARTS = [
+ {id:"3025895928459282804",name:"رملة",city:"الخبر",country:"السعودية",mobile:"966508986388",total:127,age:127,reminded:true,channel:"email,mobile",coupon:{code:"C-9HcEx1-82223",amt:5,type:"%",free:true},items:[{n:"ساعة نسائية استيل روزقولد وفضي",q:1}],url:"https://ligant.online/ar/checkout/j32xOYmB1GZ94d6zaMW7yvAwmojWYnMBKXOPXDRqKwk0grLbo5ne8VNA"},
+ {id:"3023609015988541814",name:"حنان",city:"المدينة المنورة",country:"السعودية",mobile:"966546070774",total:271,age:1519,reminded:true,channel:"email,mobile",coupon:{code:"C-EWvszQ-27957",amt:10,type:"%",free:true},items:[{n:"ساعة نسائية روزقولد وفضي",q:1},{n:"ساعة نسائية روزقولد وفضي",q:1}],url:"https://ligant.online/ar/checkout/23myRdXbKrq4xZoGOLMzgQlVgdn926BgLo8p05B17lAWwEnYaJkNe6j8"},
+ {id:"3025685047107045052",name:"نايف الجهني",city:"ينبع",country:"السعودية",mobile:"966536211374",total:288,age:238,reminded:true,channel:"email,mobile",coupon:{code:"C-3GzWZA-82223",amt:5,type:"%",free:true},items:[{n:"ساعة نسائية روزقولد وفضي",q:1},{n:"ساعة نسائية ذهبي",q:1}],url:"https://ligant.online/ar/checkout/bowYMnmA9eyWdLkJza153vyZ3z28oLokq2oQO0GZ7NxDlVKXB4grqR82"},
+ {id:"2983504275255959846",name:"كوثر محمد رضا",city:"سترة",country:"البحرين",mobile:"97338361010",total:432,age:26950,reminded:true,channel:"email",coupon:{code:"C-RfECf9",amt:10,type:"%",free:false},items:[{n:"ساعة نسائية ذهبي",q:1},{n:"ساعة نسائية ذهبي",q:1},{n:"ساعة نسائية فضي وذهبي",q:1}],url:"https://ligant.online/ar/checkout/r0EZ3zgOVNaMDb68qkowmQDLeyJGBa96DEAQjR9Ly15XWA4YlxKeB2Gn"},
+ {id:"539030864",name:"علي محمد",city:"الدمام",country:"السعودية",mobile:"966540552013",total:1440,age:154470,reminded:false,channel:null,coupon:null,items:[{n:"ساعة نسائية ذهبي (جملة)",q:10}],url:"https://ligant.online/ar/checkout/rD2W4DzNORabe9Z1n8gAmMlYPW52qyzZvxJjEGy5BqXo7w3LV0r6kKdy"},
+ {id:"1172932657",name:"نوره بويشك لافي",city:"حائل",country:"السعودية",mobile:"966538478951",total:432,age:146850,reminded:false,channel:null,coupon:null,items:[{n:"ساعة نسائية روزقولد وفضي",q:1},{n:"ساعة رجالية فضي وذهبي",q:2}],url:"https://ligant.online/ar/checkout/gzxal10DYNwE4JBeyA3LVj75v8Zj4D9DPnMKGOzRWbk2XZg6q9m8rod7"},
+ {id:"624605484",name:"عبد",city:"الرياض",country:"السعودية",mobile:"966504515756",total:298,age:264778,reminded:false,channel:null,coupon:null,items:[{n:"ساعة رجالية فضي وروزقولد",q:2}],url:"https://ligant.online/ar/checkout/Xz62Lngj7O9NDE4qo35JkrxKPo4AMxgXpYZaGdwz0Bly8MAVm1RXWebd"},
+ {id:"1993937866",name:"فاطمه",city:"الجفر",country:"السعودية",mobile:"966569008617",total:213,age:163292,reminded:false,channel:null,coupon:{code:"C-55rFjK-175126",amt:10,type:"%",free:true},items:[{n:"إسوارة ذهبي",q:1},{n:"ساعة نسائية فضي وروزقولد",q:1}],url:"https://ligant.online/ar/checkout/y1G8XZ5ow1xblN0k6mdq7LArPqZmgD3zpzWjyD2n9OaK4EJBgVMR3eYZ"},
+ {id:"547718457",name:"موده",city:"الوجه",country:"السعودية",mobile:"966503107625",total:164,age:267941,reminded:false,channel:null,coupon:{code:"C-TipuGg-175126",amt:10,type:"%",free:true},items:[{n:"ساعة نسائية ذهبي",q:1},{n:"أداة تقصير الساعات",q:1}],url:"https://ligant.online/ar/checkout/gzxal10DYNwE4JBeyA3LVj75v8ewd1WoQnMKGOzRWbk2XZg6q9m8rod7"},
+ {id:"1353915720",name:"ريم",city:"مكة المكرمة",country:"السعودية",mobile:"966598313291",total:145,age:238613,reminded:false,channel:null,coupon:{code:"C-IKZVKc-175126",amt:10,type:"%",free:true},items:[{n:"ساعة نسائية ذهبي وفصوص",q:1}],url:"https://ligant.online/ar/checkout/rD2W4DzNORabe9Z1n8gAmMlYPWm3Y0LNvxJjEGy5BqXo7w3LV0r6kKdy"},
+ {id:"1283536992",name:"غاده",city:"ينبع",country:"السعودية",mobile:"966581387764",total:145,age:233992,reminded:false,channel:null,coupon:null,items:[{n:"ساعة نسائية ذهبي وفصوص",q:1}],url:"https://ligant.online/ar/checkout/eKEj32xOYmB1GZ94d6zaMW7yvAM2ZxL0vXDRqKwk0grLbo5ne8VNAJlM"},
+ {id:"1866607007",name:"ام رايد البقمي",city:"الجبيل",country:"السعودية",mobile:"966531380177",total:144,age:146828,reminded:false,channel:null,coupon:null,items:[{n:"ساعة رجالية فضي وذهبي",q:1}],url:"https://ligant.online/ar/checkout/dX3VDLwJmBlxYOky7MAbN02npY2B8zlrvoK4j6erXgGdz89RZ1EWq5aY"},
+ {id:"855832656",name:"سلطان",city:"—",country:"السعودية",mobile:"966500636497",total:144,age:147030,reminded:false,channel:null,coupon:{code:"C-XxnLMK-175126",amt:10,type:"%",free:true},items:[{n:"ساعة رجالية فضي وذهبي",q:1}],url:"https://ligant.online/ar/checkout/e0Xk2Ew3Zo5Yl6MB1aDA0NyVQVaO6X6OvjzLWbG89KqOrxRgen7md4JD"},
+ {id:"1863895348",name:"fto",city:"الرياض",country:"السعودية",mobile:"966575267585",total:144,age:149514,reminded:false,channel:null,coupon:{code:"C-UnRqwD-175126",amt:10,type:"%",free:true},items:[{n:"ساعة نسائية فضي",q:1}],url:"https://ligant.online/ar/checkout/eKEj32xOYmB1GZ94d6zaMW7yvAoj0xz6PXDRqKwk0grLbo5ne8VNAJlM"},
+ {id:"2077514580",name:"مصلح",city:"بحره",country:"السعودية",mobile:"966561850183",total:144,age:236413,reminded:false,channel:null,coupon:null,items:[{n:"ساعة نسائية روزقولد وفضي",q:1}],url:"https://ligant.online/ar/checkout/dXm3kYrlGEOLDWzVb56jxNB8PObjbaoZQ4d172eyaZ9J0KoRgqwXAMnw"},
+ {id:"1838091706",name:"عايشه حكمي",city:"الرياض",country:"السعودية",mobile:"966555313560",total:144,age:266382,reminded:false,channel:null,coupon:{code:"C-WZB3ue-175126",amt:10,type:"%",free:true},items:[{n:"ساعة نسائية فضي مع ذهبي",q:1}],url:"https://ligant.online/ar/checkout/gZboqNdaDElzR28yn6BJ14O5vGo1RxmnvXgkKZxer7wjYMLVG903AWmD"},
+ {id:"93990982",name:"أسماء الحطامي",city:"جدة",country:"السعودية",mobile:"966542936430",total:135,age:345278,reminded:false,channel:null,coupon:{code:"C-hL8o30-175126",amt:15,type:"%",free:true},items:[{n:"ساعة نسائية فضي",q:1}],url:"https://ligant.online/ar/checkout/zdwAJkorXOnl92B05eNbR78EPmZM7x5p3V46yYDLZajKmWzMd1xqGgw8"},
+ {id:"46770871",name:"نايف",city:"الدمام",country:"السعودية",mobile:"966544974887",total:120,age:148362,reminded:false,channel:null,coupon:{code:"C-nWrfxf-175126",amt:10,type:"%",free:true},items:[{n:"ساعة رجالية جلد بني",q:1}],url:"https://ligant.online/ar/checkout/2yj0OGJgBKN6DXnw2Lel5zd4QkRWB0bvqWo1raE9ZVxy8RY7mAM3bk3b"},
+ {id:"295065152",name:"عامر",city:"القنفذة",country:"السعودية",mobile:"966500521094",total:69,age:168373,reminded:false,channel:null,coupon:{code:"C-QQbE85-175126",amt:10,type:"%",free:true},items:[{n:"إسوارة ذهبي وأزرق",q:1}],url:"https://ligant.online/ar/checkout/lm6bowYMnmA9eyWdLkJza153vyVlGNmRQO0GZ7NxDlVKXB4grqR82jEN"},
+ {id:"694164130",name:"منيرة المذهب",city:"الرياض",country:"السعودية",mobile:"966557950714",total:69,age:269177,reminded:false,channel:null,coupon:{code:"C-vO4rjC-175126",amt:10,type:"%",free:true},items:[{n:"إسوارة ذهبي",q:1}],url:"https://ligant.online/ar/checkout/A1Jg906oyYVGDLnzAXmbKe54v3YMZbaWPqWljRNBxa231rMdOEk8Zw7z"},
+ {id:"1913226108",name:"ريناد",city:"الخرج",country:"السعودية",mobile:"966531960747",total:144,age:165250,reminded:false,channel:null,coupon:{code:"C-BBwKR3-175126",amt:10,type:"%",free:true},items:[{n:"ساعة نسائية فضي وروزقولد",q:1}],url:"https://ligant.online/ar/checkout/lm6bowYMnmA9eyWdLkJza153vyA0X5yOvO0GZ7NxDlVKXB4grqR82jEN"},
+ {id:"1299404075",name:"أزهار الزاهر",city:"القطيف",country:"السعودية",mobile:"966549390036",total:20,age:256058,reminded:false,channel:null,coupon:{code:"C-Q7HvNp-175126",amt:10,type:"%",free:true},items:[{n:"أداة تقصير الساعات",q:1}],url:"https://ligant.online/ar/checkout/7LW2jx3OaVN6DJYlKM9REzBXvnajW961pqw4mdoyZn81LA0Ge7r5gbkE"}
+];
+
+/* ===== helpers ===== */
+const nf = n => n.toLocaleString("en-US");
+const sar = n => nf(n)+" ر.س";
+function ageTxt(m){
+  if(m<60) return "من "+m+" د";
+  if(m<1440) return "من "+Math.round(m/60)+" س";
+  return "من "+Math.round(m/1440)+" يوم";
+}
+function isHot(m){return m<720;}            // < 12h = ساخنة
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const watchSVG='<svg class="watch" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="6"/><path d="M12 9v3l1.6 1M9 3h6M9 21h6"/></svg>';
+
+/* ===== derived ===== */
+const reminded = CARTS.filter(c=>c.reminded).sort((a,b)=>b.total-a.total);
+const pending  = CARTS.filter(c=>!c.reminded).sort((a,b)=>b.total-a.total);
+const total    = CARTS.reduce((s,c)=>s+c.total,0);
+const remValue = reminded.reduce((s,c)=>s+c.total,0);
+const penValue = pending.reduce((s,c)=>s+c.total,0);
+const withCoupon = CARTS.filter(c=>c.coupon).length;
+
+/* ===== KPIs ===== */
+document.getElementById("kpis").innerHTML = [
+ {s:"st-all", cap:"إجمالي السلات المتروكة", dot:"var(--gold)", big:CARTS.length, unit:"سلة", sub:"قيمة مهددة "+sar(total)},
+ {s:"st-hot", cap:"القيمة المهددة", dot:"var(--hot)", big:nf(total), unit:"ر.س", sub:withCoupon+" سلة معها كوبون جاهز"},
+ {s:"st-good",cap:"اتبعتلها تذكيرات", dot:"var(--good)", big:reminded.length, unit:"سلة", sub:sar(remValue)+" · email/SMS"},
+ {s:"st-warn",cap:"لسه محتاجة تذكير", dot:"var(--warn)", big:pending.length, unit:"سلة", sub:sar(penValue)+" فرصة مفتوحة"},
+].map(k=>`<div class="kpi"><div class="stripe ${k.s}"></div>
+   <div class="cap"><span class="tagdot" style="background:${k.dot}"></span>${k.cap}</div>
+   <div class="big num">${nf(k.big)} <span class="unit">${k.unit}</span></div>
+   <div class="sub">${k.sub}</div></div>`).join("");
+
+/* ===== funnel ===== */
+const pPct = Math.round(pending.length/CARTS.length*100);
+document.getElementById("fbar").innerHTML =
+  `<div class="fseg warn" style="flex-basis:${pPct}%">${pending.length}</div>
+   <div class="fseg good" style="flex-basis:${100-pPct}%">${reminded.length}</div>`;
+document.getElementById("flegend").innerHTML =
+  `<span><span class="tagdot" style="background:var(--warn)"></span> لسه محتاجة تذكير — <b class="num">&nbsp;${pending.length}</b>&nbsp;سلة · ${sar(penValue)}</span>
+   <span><span class="tagdot" style="background:var(--good)"></span> اتبعتلها تذكيرات — <b class="num">&nbsp;${reminded.length}</b>&nbsp;سلة · ${sar(remValue)}</span>`;
+
+/* ===== cart card ===== */
+function card(c){
+  const hot = !c.reminded && isHot(c.age);
+  const itemsTxt = c.items.map(i=>esc(i.n)+(i.q>1?` ×${i.q}`:"")).join(" · ");
+  const wa = "https://wa.me/"+c.mobile;
+  const badge = c.reminded
+     ? `<span class="badge b-good">✓ ${c.channel.includes("mobile")?"إيميل+SMS":"إيميل"}</span>`
+     : (hot ? `<span class="badge b-hot">● ساخنة</span>` : `<span class="badge b-warn">بانتظار تذكير</span>`);
+  const coupon = c.coupon
+     ? `<span class="coupon">🎟 <code>${esc(c.coupon.code)}</code> ${c.coupon.amt}${c.coupon.type}${c.coupon.free?" + شحن مجاني":""}</span>` : "";
+  return `<div class="cart${hot?" pri":""}">
+    <div class="av">${esc(c.name.trim().charAt(0)||"؟")}</div>
+    <div class="cbody">
+      <div class="cname">${esc(c.name.trim())} ${badge}</div>
+      <div class="cmeta">${esc(c.city)}${c.country!=="السعودية"?" · "+esc(c.country):""} · <span class="num" dir="ltr">+${c.mobile}</span></div>
+      <div class="citems">${watchSVG}<span>${itemsTxt}</span></div>
+      <div class="actions">
+        <a class="btn wa" href="${wa}" target="_blank" rel="noopener">واتساب</a>
+        <a class="btn" href="${esc(c.url)}" target="_blank" rel="noopener">رابط السلة</a>
+        ${coupon}
+      </div>
+    </div>
+    <div class="cright">
+      <div class="camt num">${sar(c.total)}</div>
+      <div class="age">${ageTxt(c.age)}</div>
+    </div>
+  </div>`;
+}
+document.getElementById("pending").innerHTML  = pending.map(card).join("");
+document.getElementById("reminded").innerHTML = reminded.map(card).join("");
+
+/* ===== recommendations (computed) ===== */
+const recs = [];
+const topPending = pending[0];
+const hotCarts = pending.filter(c=>isHot(c.age));
+const couponReady = pending.filter(c=>c.coupon);
+const bahrain = CARTS.find(c=>c.country!=="السعودية" && c.reminded);
+
+if(pending.length) recs.push({ic:"📣",col:"var(--warn)",bg:"var(--warn-soft)",
+  h:`ابعت تذكير لـ ${pending.length} سلة لسه ماوصلهاش أي تنبيه`,
+  p:`قيمتها ${sar(penValue)} — دي أكبر فرصة استرجاع مفتوحة دلوقتي. ابدأ فورًا بالأعلى قيمة.`});
+
+if(topPending) recs.push({ic:"💎",col:"var(--hot)",bg:"var(--hot-soft)",
+  h:`أولوية قصوى: سلة ${esc(topPending.name.trim())} بـ ${sar(topPending.total)}`,
+  p:`${topPending.items[0].q>1?`طلب جملة (${topPending.items[0].q} قطعة) من ${esc(topPending.city)}`:esc(topPending.city)} — اتصل شخصيًا أو واتساب مباشر، ده أعلى من متوسط السلة بكتير.`});
+
+if(hotCarts.length) recs.push({ic:"🔥",col:"var(--hot)",bg:"var(--hot-soft)",
+  h:`${hotCarts.length} سلة ساخنة (آخر 12 ساعة) — لسه العميل قريب`,
+  p:`أعلى معدل استرجاع بيكون في أول ساعات الترك. ابعت تذكير + كوبون خلال ساعة.`});
+
+if(couponReady.length) recs.push({ic:"🎟",col:"var(--gold)",bg:"var(--gold-soft)",
+  h:`${couponReady.length} سلة معاها كوبون جاهز مفعّل + شحن مجاني`,
+  p:`الكوبونات اتولّدت بالفعل من سلة — ابعتها في رسالة التذكير عشان تدفع العميل يكمّل بسرعة.`});
+
+if(bahrain) recs.push({ic:"🌍",col:"var(--good)",bg:"var(--good-soft)",
+  h:`تذكير ${esc(bahrain.name.trim())} (${esc(bahrain.country)}) راح بالإيميل فقط`,
+  p:`العملاء خارج السعودية غالبًا رقمهم دولي — تأكد إن رسالة الـSMS/واتساب بتوصلهم، مش بس الإيميل.`});
+
+document.getElementById("recs").innerHTML = recs.map((r,i)=>`<div class="rec">
+   <div class="ic" style="background:${r.bg};color:${r.col};font-size:16px">${r.ic}</div>
+   <div><h3>${r.h}</h3><p>${r.p}</p></div></div>`).join("");
+
+/* ===== top abandoned products ===== */
+const pmap = {};
+CARTS.forEach(c=>c.items.forEach(i=>{
+  const key = i.n.replace(/\s*\(جملة\)/,"").trim();
+  pmap[key] = (pmap[key]||0) + i.q;
+}));
+const top = Object.entries(pmap).sort((a,b)=>b[1]-a[1]).slice(0,6);
+const maxq = top[0][1];
+document.getElementById("topprod").innerHTML = top.map(([n,q])=>`
+  <div>
+   <div class="toprow"><span>${esc(n)}</span><b class="num">${q} قطعة</b></div>
+   <div class="tpwrap"><div class="tpbar" style="width:${Math.max(6,Math.round(q/maxq*100))}%"></div></div>
+  </div>`).join("");
+
+/* ===== live clock + auto refresh ===== */
+function fmtTime(iso){
+  try{const d=new Date(iso);return d.toLocaleTimeString("ar-SA",{hour:"2-digit",minute:"2-digit",hour12:true});}
+  catch(e){return "—";}
+}
+document.getElementById("updated").textContent = fmtTime(GENERATED_AT);
+let left = 60;
+const cEl = document.getElementById("count");
+setInterval(()=>{ left--; if(left<=0){location.reload();return;} cEl.textContent=left; },1000);
+</script>

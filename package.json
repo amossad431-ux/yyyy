@@ -1,0 +1,23 @@
+{
+  "name": "cartat-whatsapp-sender",
+  "version": "1.0.0",
+  "description": "تطبيق بسيط لإرسال رسائل واتساب التسويقية عبر Cartat API",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "send": "node src/cli.js"
+  },
+  "keywords": [
+    "whatsapp",
+    "cartat",
+    "marketing",
+    "messaging"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0"
+  }
+}

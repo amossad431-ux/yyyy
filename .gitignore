@@ -1,0 +1,16 @@
+# الأسرار — لا تُرفع أبداً على git
+.env
+.env.local
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# سجلّات الإرسال
+logs/
+*.log
+
+# نظام التشغيل
+.DS_Store
+Thumbs.db

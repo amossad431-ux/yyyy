@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Homeszy Knee Sleeve — Compression Support for Pain-Free Movement</title>
+<meta name="description" content="Targeted compression knee sleeve that eases pain and swelling, stays put during any activity, and feels light enough to wear all day. Free shipping + 30-day money-back guarantee." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #0e1b2a;
+    --ink-soft: #33465a;
+    --paper: #f6f4ef;
+    --paper-2: #ffffff;
+    --line: #e5e0d6;
+    --accent: #ff5a3c;
+    --accent-dark: #e6421f;
+    --teal: #12b3a6;
+    --teal-dark: #0c8378;
+    --star: #ffb020;
+    --radius: 18px;
+    --shadow-sm: 0 2px 10px rgba(14, 27, 42, .06);
+    --shadow-md: 0 14px 40px rgba(14, 27, 42, .10);
+    --shadow-lg: 0 30px 70px rgba(14, 27, 42, .16);
+    --maxw: 1160px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Manrope", system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: "Sora", system-ui, sans-serif; line-height: 1.1; margin: 0; letter-spacing: -0.02em; }
+  p { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 22px; }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    background: var(--accent); color: #fff; font-family: "Sora", sans-serif; font-weight: 700;
+    font-size: 1.02rem; padding: 17px 30px; border-radius: 999px; border: none; cursor: pointer;
+    box-shadow: 0 12px 26px rgba(255, 90, 60, .34); transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    text-align: center;
+  }
+  .btn:hover { transform: translateY(-2px); background: var(--accent-dark); box-shadow: 0 18px 34px rgba(255, 90, 60, .42); }
+  .btn:active { transform: translateY(0); }
+  .btn--ghost { background: #fff; color: var(--ink); box-shadow: var(--shadow-sm); }
+  .btn--ghost:hover { background: #fff; color: var(--ink); box-shadow: var(--shadow-md); }
+  .btn--sm { padding: 12px 22px; font-size: .92rem; }
+  .btn--big { padding: 20px 40px; font-size: 1.12rem; }
+
+  /* ---------- Nav ---------- */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(246, 244, 239, .82); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+  .logo { display: flex; align-items: center; gap: 10px; font-family: "Sora", sans-serif; font-weight: 800; font-size: 1.28rem; }
+  .logo .mark {
+    width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center;
+    background: var(--ink); color: #fff; font-size: 1rem;
+  }
+  .logo .mark svg { width: 20px; height: 20px; }
+  .nav-cta { display: flex; align-items: center; gap: 18px; }
+  .nav-links { display: flex; gap: 26px; font-weight: 600; font-size: .95rem; color: var(--ink-soft); }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 58px 0 70px; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 54px; align-items: center; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: .8rem;
+    text-transform: uppercase; letter-spacing: .12em; color: var(--teal-dark);
+    background: rgba(18, 179, 166, .12); padding: 7px 14px; border-radius: 999px;
+  }
+  .hero h1 { font-size: clamp(2.4rem, 5.2vw, 3.9rem); font-weight: 800; margin: 20px 0 18px; }
+  .hero h1 .hl { color: var(--accent); }
+  .hero .lead { font-size: 1.16rem; color: var(--ink-soft); max-width: 30em; }
+  .rating { display: flex; align-items: center; gap: 12px; margin: 22px 0 6px; flex-wrap: wrap; }
+  .stars { color: var(--star); font-size: 1.15rem; letter-spacing: 2px; }
+  .rating span { font-weight: 600; color: var(--ink-soft); font-size: .95rem; }
+  .hero-list { list-style: none; padding: 0; margin: 24px 0 30px; display: grid; gap: 13px; }
+  .hero-list li { display: flex; align-items: flex-start; gap: 12px; font-weight: 500; font-size: 1.03rem; }
+  .hero-list .ck {
+    flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--teal);
+    display: grid; place-items: center; margin-top: 2px;
+  }
+  .hero-list .ck svg { width: 13px; height: 13px; stroke: #fff; }
+  .hero-actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .hero-actions .micro { font-size: .88rem; color: var(--ink-soft); font-weight: 500; }
+
+  /* Hero visual */
+  .hero-visual { position: relative; }
+  .product-card {
+    position: relative; background: linear-gradient(160deg, #ffffff, #eef1f0);
+    border-radius: 28px; box-shadow: var(--shadow-lg); padding: 34px; aspect-ratio: 1 / 1;
+    display: grid; place-items: center; overflow: hidden;
+  }
+  .product-card::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(circle at 30% 25%, rgba(18,179,166,.16), transparent 55%),
+                radial-gradient(circle at 78% 82%, rgba(255,90,60,.14), transparent 52%);
+  }
+  .product-card svg.knee { width: 74%; height: auto; position: relative; z-index: 1; filter: drop-shadow(0 20px 30px rgba(14,27,42,.18)); }
+  .badge-float {
+    position: absolute; z-index: 2; background: #fff; border-radius: 14px; box-shadow: var(--shadow-md);
+    padding: 12px 16px; display: flex; align-items: center; gap: 11px; font-weight: 700; font-size: .9rem;
+  }
+  .badge-float small { display: block; font-weight: 500; color: var(--ink-soft); font-size: .76rem; }
+  .badge-1 { top: 22px; left: -14px; }
+  .badge-2 { bottom: 26px; right: -12px; }
+  .badge-float .ic { width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; flex-shrink: 0; }
+  .badge-1 .ic { background: rgba(18,179,166,.14); color: var(--teal-dark); }
+  .badge-2 .ic { background: rgba(255,90,60,.14); color: var(--accent-dark); }
+  .badge-float svg { width: 18px; height: 18px; }
+
+  /* ---------- Trust bar ---------- */
+  .trust { background: var(--ink); color: #fff; padding: 30px 0; }
+  .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; text-align: center; }
+  .trust-grid .n { font-family: "Sora", sans-serif; font-weight: 800; font-size: 1.9rem; }
+  .trust-grid .l { color: #a9b6c4; font-size: .9rem; font-weight: 500; margin-top: 3px; }
+  .trust-grid .item { position: relative; }
+  .trust-grid .item + .item::before {
+    content: ""; position: absolute; left: 0; top: 12%; height: 76%; width: 1px; background: rgba(255,255,255,.12);
+  }
+
+  /* ---------- Section shell ---------- */
+  section.block { padding: 84px 0; }
+  .sec-head { text-align: center; max-width: 40em; margin: 0 auto 52px; }
+  .sec-head .kicker {
+    font-weight: 700; font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent);
+  }
+  .sec-head h2 { font-size: clamp(1.9rem, 3.8vw, 2.7rem); font-weight: 700; margin: 14px 0 14px; }
+  .sec-head p { color: var(--ink-soft); font-size: 1.08rem; }
+
+  /* ---------- Features ---------- */
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .feature {
+    background: var(--paper-2); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 34px 30px; box-shadow: var(--shadow-sm); transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .feature:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+  .feature .ficon {
+    width: 58px; height: 58px; border-radius: 15px; display: grid; place-items: center; margin-bottom: 20px;
+    background: linear-gradient(150deg, var(--teal), var(--teal-dark)); color: #fff;
+  }
+  .feature:nth-child(2) .ficon { background: linear-gradient(150deg, var(--accent), var(--accent-dark)); }
+  .feature:nth-child(3) .ficon { background: linear-gradient(150deg, #3d5a80, var(--ink)); }
+  .feature .ficon svg { width: 27px; height: 27px; }
+  .feature h3 { font-size: 1.28rem; font-weight: 700; margin-bottom: 10px; }
+  .feature p { color: var(--ink-soft); }
+  .feature .proof { margin-top: 16px; font-size: .86rem; font-weight: 700; color: var(--teal-dark); display: inline-flex; align-items: center; gap: 7px; }
+  .feature:nth-child(2) .proof { color: var(--accent-dark); }
+  .feature:nth-child(3) .proof { color: var(--ink); }
+
+  /* ---------- Story ---------- */
+  .story { background: var(--paper-2); }
+  .story-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center; }
+  .story-visual {
+    border-radius: 24px; aspect-ratio: 4 / 5; box-shadow: var(--shadow-md); overflow: hidden;
+    background: linear-gradient(160deg, #0e1b2a, #22384f); position: relative; display: grid; place-items: center;
+  }
+  .story-visual::after {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(circle at 70% 20%, rgba(255,90,60,.22), transparent 50%),
+                radial-gradient(circle at 20% 90%, rgba(18,179,166,.22), transparent 50%);
+  }
+  .story-visual svg { width: 64%; position: relative; z-index: 1; filter: drop-shadow(0 18px 24px rgba(0,0,0,.35)); }
+  .story h2 { font-size: clamp(1.8rem, 3.6vw, 2.5rem); font-weight: 700; margin-bottom: 22px; }
+  .story p { color: var(--ink-soft); font-size: 1.07rem; margin-bottom: 16px; }
+  .story p strong { color: var(--ink); }
+  .story .signoff { font-weight: 700; color: var(--ink); font-family: "Sora", sans-serif; margin-top: 8px; }
+
+  /* ---------- Testimonials ---------- */
+  .tgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .tcard {
+    background: var(--paper-2); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 30px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 16px;
+  }
+  .tcard .tstars { color: var(--star); letter-spacing: 2px; }
+  .tcard blockquote { margin: 0; font-size: 1.04rem; font-weight: 500; color: var(--ink); }
+  .tcard .who { display: flex; align-items: center; gap: 13px; margin-top: auto; }
+  .tcard .avatar {
+    width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0; display: grid; place-items: center;
+    color: #fff; font-family: "Sora", sans-serif; font-weight: 700; font-size: 1.05rem;
+  }
+  .tcard:nth-child(1) .avatar { background: var(--teal-dark); }
+  .tcard:nth-child(2) .avatar { background: var(--accent-dark); }
+  .tcard:nth-child(3) .avatar { background: #3d5a80; }
+  .tcard .who .name { font-weight: 700; font-size: .98rem; }
+  .tcard .who .role { color: var(--ink-soft); font-size: .84rem; }
+  .verified { display: inline-flex; align-items: center; gap: 5px; font-size: .78rem; font-weight: 700; color: var(--teal-dark); }
+  .verified svg { width: 14px; height: 14px; }
+
+  /* ---------- Guarantee ---------- */
+  .guarantee { background: var(--ink); color: #fff; }
+  .guarantee .g-grid { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center; }
+  .g-seal {
+    width: 170px; height: 170px; border-radius: 50%; flex-shrink: 0; display: grid; place-items: center; text-align: center;
+    border: 3px dashed rgba(255,255,255,.35); background: rgba(255,255,255,.04);
+  }
+  .g-seal .num { font-family: "Sora", sans-serif; font-weight: 800; font-size: 2.7rem; line-height: 1; }
+  .g-seal .txt { font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; color: #a9b6c4; margin-top: 4px; }
+  .guarantee h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); font-weight: 700; margin-bottom: 16px; }
+  .guarantee p { color: #c3cdd8; font-size: 1.08rem; max-width: 44em; }
+  .guarantee .g-points { display: flex; gap: 26px; margin-top: 22px; flex-wrap: wrap; }
+  .guarantee .g-points span { display: inline-flex; align-items: center; gap: 9px; font-weight: 600; font-size: .96rem; }
+  .guarantee .g-points svg { width: 18px; height: 18px; stroke: var(--teal); }
+
+  /* ---------- Final CTA ---------- */
+  .final { text-align: center; }
+  .final-card {
+    background: linear-gradient(155deg, #fff, #f0efe9); border: 1px solid var(--line);
+    border-radius: 30px; padding: 66px 40px; box-shadow: var(--shadow-md); position: relative; overflow: hidden;
+  }
+  .final-card::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(circle at 15% 20%, rgba(255,90,60,.10), transparent 45%),
+                radial-gradient(circle at 85% 80%, rgba(18,179,166,.12), transparent 45%);
+  }
+  .final-card > * { position: relative; z-index: 1; }
+  .final-card h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 16px; }
+  .final-card p { color: var(--ink-soft); font-size: 1.12rem; max-width: 34em; margin: 0 auto 14px; }
+  .price-row { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 26px 0 6px; }
+  .price-row .now { font-family: "Sora", sans-serif; font-weight: 800; font-size: 2.4rem; }
+  .price-row .was { color: var(--ink-soft); text-decoration: line-through; font-size: 1.3rem; font-weight: 600; }
+  .price-row .save { background: var(--accent); color: #fff; font-weight: 700; font-size: .82rem; padding: 6px 12px; border-radius: 999px; }
+  .final .micro { font-size: .9rem; color: var(--ink-soft); margin-top: 16px; }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--paper); border-top: 1px solid var(--line); padding: 44px 0 34px; }
+  .foot { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .foot .flinks { display: flex; gap: 24px; color: var(--ink-soft); font-weight: 500; font-size: .92rem; }
+  .foot .flinks a:hover { color: var(--ink); }
+  .foot .copy { color: var(--ink-soft); font-size: .88rem; }
+  .pay { display: flex; gap: 8px; align-items: center; }
+  .pay .chip { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 4px 9px; font-size: .72rem; font-weight: 700; color: var(--ink-soft); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 940px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+    .hero-visual { max-width: 440px; margin: 0 auto; width: 100%; }
+    .features, .tgrid { grid-template-columns: 1fr; }
+    .story-grid { grid-template-columns: 1fr; gap: 36px; }
+    .story-visual { max-width: 380px; margin: 0 auto; width: 100%; }
+    .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 26px; }
+    .trust-grid .item:nth-child(3)::before, .trust-grid .item:nth-child(2)::before { display: none; }
+    .guarantee .g-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 28px; }
+    .guarantee p { margin: 0 auto; }
+    .guarantee .g-points { justify-content: center; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 560px) {
+    section.block { padding: 60px 0; }
+    .hero { padding: 40px 0 50px; }
+    .final-card { padding: 46px 24px; }
+    .foot { flex-direction: column; text-align: center; }
+    .badge-1 { left: 4px; } .badge-2 { right: 4px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="wrap nav">
+      <div class="logo">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 11.5C4 7 7.5 4 12 4s8 3 8 7.5c0 3-2 5-3.5 6.5S13.5 20 12 20s-1-1.5-2.5-3S4 14.5 4 11.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </span>
+        Homeszy
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#features">Benefits</a>
+        <a href="#story">Why It Works</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#guarantee">Guarantee</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="#buy" class="btn btn--sm">Get Yours</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2 4 6v6c0 5 3.4 8.3 8 10 4.6-1.7 8-5 8-10V6l-8-4Z" stroke="#0c8378" stroke-width="2" stroke-linejoin="round"/></svg>
+          Doctor-inspired support
+        </span>
+        <h1>Move Without the Ache — <span class="hl">Support Every Step</span></h1>
+        <p class="lead">The Homeszy Knee Sleeve wraps your joint in targeted compression that calms pain and swelling — so stairs, squats, and long days stop holding you back.</p>
+
+        <div class="rating">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <span>4.8 / 5 from 12,400+ verified reviews</span>
+        </div>
+
+        <ul class="hero-list">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Eases everyday knee pain &amp; stiffness in minutes</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Non-slip grip stays put through any activity</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Breathable, second-skin feel you can wear all day</li>
+        </ul>
+
+        <div class="hero-actions">
+          <a href="#buy" class="btn btn--big">Get My Knee Sleeve →</a>
+          <span class="micro">Free shipping · 30-day money-back</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="product-card">
+          <div class="badge-float badge-1">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.4-7-10a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 19 11c0 5.6-7 10-7 10Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+            <div>Relief in minutes<small>Targeted compression</small></div>
+          </div>
+          <div class="badge-float badge-2">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+            <div>Anti-slip fit<small>All-day hold</small></div>
+          </div>
+          <!-- Knee sleeve illustration -->
+          <svg class="knee" viewBox="0 0 200 260" fill="none" aria-label="Homeszy knee sleeve on a leg">
+            <defs>
+              <linearGradient id="leg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#f4d9c4"/><stop offset="1" stop-color="#e8bfa0"/>
+              </linearGradient>
+              <linearGradient id="sleeve" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#16324a"/><stop offset="1" stop-color="#0e1b2a"/>
+              </linearGradient>
+            </defs>
+            <path d="M78 6c-6 34-10 56-8 78 2 20 4 34 2 52-2 20-6 44-4 66h58c-4-24-8-46-6-66 2-18 4-32 2-52 2-22-2-44-8-78Z" fill="url(#leg)"/>
+            <rect x="58" y="96" width="84" height="86" rx="30" fill="url(#sleeve)"/>
+            <path d="M58 128c26 12 58 12 84 0M58 150c26 12 58 12 84 0" stroke="#2a4d6b" stroke-width="3" stroke-linecap="round"/>
+            <ellipse cx="100" cy="139" rx="17" ry="21" fill="none" stroke="#12b3a6" stroke-width="4"/>
+            <path d="M100 118v-8M100 168v8" stroke="#12b3a6" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="100" cy="139" r="4" fill="#ff5a3c"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust">
+    <div class="wrap trust-grid">
+      <div class="item"><div class="n">120K+</div><div class="l">Sleeves shipped</div></div>
+      <div class="item"><div class="n">4.8★</div><div class="l">Average rating</div></div>
+      <div class="item"><div class="n">30-Day</div><div class="l">Money-back promise</div></div>
+      <div class="item"><div class="n">92%</div><div class="l">Report less pain*</div></div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="block" id="features">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Why people keep it on</span>
+        <h2>Support that actually earns its place on your knee</h2>
+        <p>Three things every knee sleeve promises — and the Homeszy sleeve is built to deliver all of them at once.</p>
+      </div>
+      <div class="features">
+        <div class="feature">
+          <div class="ficon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.4-7-10a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 19 11c0 5.6-7 10-7 10Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+          <h3>Targeted compression</h3>
+          <p>Graduated pressure hugs the joint to improve circulation, calm inflammation, and take the edge off aching, stiff knees.</p>
+          <span class="proof">✓ Most feel relief within minutes</span>
+        </div>
+        <div class="feature">
+          <div class="ficon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 0 1 16 0M4 12a8 8 0 0 0 16 0M12 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <h3>Non-slip, stays put</h3>
+          <p>Silicone anti-slip bands lock the sleeve in place through squats, running, gardening, or a full shift on your feet — no readjusting.</p>
+          <span class="proof">✓ Built for real movement</span>
+        </div>
+        <div class="feature">
+          <div class="ficon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3c3 3.5 5 6.5 5 9a5 5 0 0 1-10 0c0-2.5 2-5.5 5-9Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+          <h3>Breathable all day</h3>
+          <p>Lightweight, moisture-wicking knit stays cool and dry, so it feels like a second skin instead of a bulky brace you want to rip off.</p>
+          <span class="proof">✓ Comfortable from morning to night</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="block story" id="story">
+    <div class="wrap story-grid">
+      <div class="story-visual">
+        <svg viewBox="0 0 200 240" fill="none" aria-label="Person moving comfortably">
+          <circle cx="100" cy="46" r="26" fill="#f4d9c4"/>
+          <path d="M64 118c0-24 16-40 36-40s36 16 36 40l-6 40H70l-6-40Z" fill="#12b3a6"/>
+          <rect x="78" y="150" width="18" height="70" rx="9" fill="#e8bfa0"/>
+          <rect x="104" y="150" width="18" height="70" rx="9" fill="#e8bfa0"/>
+          <rect x="74" y="176" width="26" height="26" rx="11" fill="#0e1b2a"/>
+          <ellipse cx="87" cy="189" rx="6" ry="7" fill="none" stroke="#ff5a3c" stroke-width="3"/>
+        </svg>
+      </div>
+      <div class="story-copy">
+        <h2>Your knees shouldn't decide what you can do</h2>
+        <p>It starts small. A twinge on the stairs. A dull ache after a walk you used to breeze through. So you start skipping things — the hike, the gym, playing on the floor with the kids — because <strong>every step comes with a cost.</strong></p>
+        <p>The Homeszy Knee Sleeve was made for exactly that moment. Slip it on and the joint gets steady, warming compression — the kind that quiets pain, adds confidence, and reminds your knee what it's capable of.</p>
+        <p>No pills. No appointments. No bulky brace. Just support you can pull on in seconds and forget you're wearing — while you get back to the things your knees were keeping you from.</p>
+        <p class="signoff">— The Homeszy team</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="block" id="reviews">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Real customers</span>
+        <h2>12,400+ people have their step back</h2>
+        <p>Here's what happens when the ache stops running the day.</p>
+      </div>
+      <div class="tgrid">
+        <div class="tcard">
+          <div class="tstars" aria-hidden="true">★★★★★</div>
+          <blockquote>"I'm on my feet 10 hours a day and my knees used to be screaming by noon. Two weeks in this sleeve and that afternoon ache is basically gone. I wear it every shift now."</blockquote>
+          <div class="who">
+            <div class="avatar">DR</div>
+            <div>
+              <div class="name">Diane R.</div>
+              <div class="role">Nurse · Ohio</div>
+              <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="#0c8378"><path d="m5 13 4 4L19 7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Verified buyer</span>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tstars" aria-hidden="true">★★★★★</div>
+          <blockquote>"Started running again at 44 and my left knee was not on board. This is the first sleeve that actually stays put — no sliding down mid-run. Genuinely made me feel steady again."</blockquote>
+          <div class="who">
+            <div class="avatar">MK</div>
+            <div>
+              <div class="name">Marcus K.</div>
+              <div class="role">Weekend runner · Leeds</div>
+              <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="#0c8378"><path d="m5 13 4 4L19 7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Verified buyer</span>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tstars" aria-hidden="true">★★★★★</div>
+          <blockquote>"Bought it for gardening days that always left me sore. Now I can kneel, get up, and keep going. Lightweight enough that I forget it's on until I take it off. Ordered a second one."</blockquote>
+          <div class="who">
+            <div class="avatar">SL</div>
+            <div>
+              <div class="name">Susan L.</div>
+              <div class="role">Retired teacher · Arizona</div>
+              <span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="#0c8378"><path d="m5 13 4 4L19 7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Verified buyer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE -->
+  <section class="block guarantee" id="guarantee">
+    <div class="wrap g-grid">
+      <div class="g-seal">
+        <div>
+          <div class="num">30</div>
+          <div class="txt">Day Guarantee</div>
+        </div>
+      </div>
+      <div>
+        <h2>Try it for 30 days — completely risk-free</h2>
+        <p>Wear it on your walks, your workouts, your longest days. If your knees don't feel more supported and less achy, send it back for a full refund. No return-shipping hassle, no fine print, no hard feelings.</p>
+        <div class="g-points">
+          <span><svg viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg> Full money-back promise</span>
+          <span><svg viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg> Free shipping included</span>
+          <span><svg viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg> Friendly human support</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="block final" id="buy">
+    <div class="wrap">
+      <div class="final-card">
+        <span class="eyebrow" style="background:rgba(255,90,60,.12);color:var(--accent-dark)">Limited launch offer</span>
+        <h2>Give your knees the support they've been asking for</h2>
+        <p>Join 120,000+ people who stopped letting knee pain shrink their day. Pull it on, feel the difference, and if it's not for you — you're covered by our 30-day promise.</p>
+
+        <div class="price-row">
+          <span class="now">$29.95</span>
+          <span class="was">$59.90</span>
+          <span class="save">Save 50%</span>
+        </div>
+
+        <a href="#" class="btn btn--big" style="margin-top:14px">Get My Knee Sleeve — Free Shipping →</a>
+        <p class="micro">✓ 30-day money-back guarantee &nbsp;·&nbsp; ✓ Ships free in 24 hours &nbsp;·&nbsp; ✓ Secure checkout</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap foot">
+      <div class="logo">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 11.5C4 7 7.5 4 12 4s8 3 8 7.5c0 3-2 5-3.5 6.5S13.5 20 12 20s-1-1.5-2.5-3S4 14.5 4 11.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </span>
+        Homeszy
+      </div>
+      <nav class="flinks" aria-label="Footer">
+        <a href="#features">Benefits</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#guarantee">Guarantee</a>
+        <a href="#buy">Order</a>
+      </nav>
+      <div class="pay">
+        <span class="chip">VISA</span>
+        <span class="chip">MC</span>
+        <span class="chip">AMEX</span>
+        <span class="chip">PAYPAL</span>
+      </div>
+    </div>
+    <div class="wrap" style="margin-top:20px;text-align:center">
+      <p class="copy">© 2026 Homeszy. All rights reserved. *Based on internal customer survey; results vary. This product is not intended to diagnose, treat, or cure any medical condition.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

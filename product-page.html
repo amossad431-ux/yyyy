@@ -64,20 +64,35 @@
 .clp .checks li:after{content:"\2713";position:absolute;left:4px;top:1px;color:#fff;font-size:11px;font-weight:900}
 .clp .pull{background:var(--accent-soft);border-left:4px solid var(--accent);padding:16px 20px;border-radius:0 12px 12px 0;font-weight:600;color:var(--ink);margin-top:8px}
 
-/* ---------- BENEFITS STRIP ---------- */
-.clp .benefits{padding:66px 0 10px}
-.clp .benefits .head{text-align:center;max-width:640px;margin:0 auto 40px}
-.clp .benefits .head .eyebrow{justify-content:center}
-.clp .benefits .head p{color:var(--muted);font-size:16px}
-.clp .bgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-@media(max-width:900px){.clp .bgrid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.clp .bgrid{grid-template-columns:1fr;max-width:360px;margin:0 auto}}
-.clp .bcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 22px;text-align:center;transition:transform .25s,box-shadow .25s,border-color .25s}
-.clp .bcard:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--accent-soft)}
-.clp .bcard .ic{width:56px;height:56px;margin:0 auto 16px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent-soft),#fff);border:1px solid var(--accent-soft)}
-.clp .bcard .ic svg{width:26px;height:26px;stroke:var(--accent);fill:none}
-.clp .bcard h3{font-family:'Sora',sans-serif;font-size:16.5px;font-weight:700;margin-bottom:8px;color:var(--ink)}
-.clp .bcard p{font-size:14px;color:var(--body);line-height:1.55}
+/* ---------- TECHNICAL FEATURES ---------- */
+.clp .techfeat{padding:66px 0 10px}
+.clp .techfeat .head{text-align:center;max-width:660px;margin:0 auto 44px}
+.clp .techfeat .head .eyebrow{justify-content:center}
+.clp .techfeat .head p{color:var(--muted);font-size:16px}
+.clp .tfgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+@media(max-width:900px){.clp .tfgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.clp .tfgrid{grid-template-columns:1fr;max-width:360px;margin:0 auto}}
+.clp .tfcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .25s,box-shadow .25s}
+.clp .tfcard:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.clp .tfcard img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.clp .tfcard .tf-b{padding:22px 20px 26px}
+.clp .tfcard h3{font-family:'Sora',sans-serif;font-size:16.5px;font-weight:700;margin-bottom:8px;color:var(--ink)}
+.clp .tfcard p{font-size:14px;color:var(--body);line-height:1.55}
+
+/* ---------- SEE HOW THOUSANDS (UGC) ---------- */
+.clp .seehow{padding:70px 0;background:var(--soft)}
+.clp .seehow .head{text-align:center;margin-bottom:42px}
+.clp .seehow .head .eyebrow{justify-content:center}
+.clp .ugcgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+@media(max-width:1000px){.clp .ugcgrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.clp .ugcgrid{grid-template-columns:repeat(2,1fr)}}
+.clp .ugccard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .25s,box-shadow .25s}
+.clp .ugccard:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.clp .ugccard img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.clp .ugccard .u-b{padding:15px 16px 19px}
+.clp .ugccard .handle{font-family:'Sora',sans-serif;font-weight:700;font-size:14px;color:var(--accent);margin-bottom:6px}
+.clp .ugccard .stars{display:block;font-size:12px;color:var(--gold);letter-spacing:1px;margin-bottom:7px}
+.clp .ugccard p{font-size:13.5px;color:var(--body);line-height:1.5}
 
 /* ---------- TRUST BAND ---------- */
 .clp .trust{background:linear-gradient(135deg,#0f2a34,#123b48);padding:34px 0;margin-top:64px}
@@ -267,33 +282,41 @@
   <div class="img reveal"><img src="https://homeszy.com/cdn/shop/files/7_7c29e425-9cba-42dc-8974-74423f3cdbe7_1.webp" alt="Everyday convenience"></div>
 </div></div></div>
 
-<!-- ===== BENEFITS STRIP ===== -->
-<div class="benefits"><div class="wrap">
+<!-- ===== TECHNICAL FEATURES ===== -->
+<div class="techfeat"><div class="wrap">
   <div class="head reveal">
-    <span class="eyebrow">Why It Works</span>
-    <h2>Four systems, one comfortable fit</h2>
-    <p>Every detail is designed to keep you supported and moving comfortably throughout the day.</p>
+    <span class="eyebrow">Engineered To Perform</span>
+    <h2>Technical Features</h2>
+    <p>Four engineering details that separate Cartelo from a basic compression sleeve.</p>
   </div>
-  <div class="bgrid">
-    <div class="bcard reveal">
-      <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-      <h3>Precision Dial</h3>
-      <p>Adjust the compression to the exact level of support that feels right.</p>
+  <div class="tfgrid">
+    <div class="tfcard reveal">
+      <img src="https://homeszy.com/cdn/shop/files/1_78704983-5733-411c-bb04-4ad9fa4754ab_1.webp" alt="SLS Tension Dial">
+      <div class="tf-b">
+        <h3>SLS Tension Dial&trade;</h3>
+        <p>Micro-adjustable dial that lets you tighten or loosen the brace for a secure, personalized fit — in one hand, in one second.</p>
+      </div>
     </div>
-    <div class="bcard reveal">
-      <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
-      <h3>Patella Gel Pad</h3>
-      <p>Cushions and distributes pressure gently around the kneecap.</p>
+    <div class="tfcard reveal">
+      <img src="https://homeszy.com/cdn/shop/files/3_6641a256-ad03-4e3a-8d1f-67a610da327d.webp" alt="Dual Side Steel Stabilizers">
+      <div class="tf-b">
+        <h3>Dual Side Steel Stabilizers</h3>
+        <p>Prevent excessive lateral movement and increase support, while still allowing natural flexion through the full range of motion.</p>
+      </div>
     </div>
-    <div class="bcard reveal">
-      <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18M18 3v18"/><path d="M6 8h12M6 16h12"/></svg></div>
-      <h3>Side Stabilizers</h3>
-      <p>Dual supports steady the knee during everyday movement.</p>
+    <div class="tfcard reveal">
+      <img src="https://homeszy.com/cdn/shop/files/DM_20260715175718_003.webp" alt="Integrated Patella GEL Pad">
+      <div class="tf-b">
+        <h3>Integrated Patella GEL Pad</h3>
+        <p>Cushions the kneecap, spreads pressure away from the joint line and keeps the patella tracking where it should.</p>
+      </div>
     </div>
-    <div class="bcard reveal">
-      <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12s3-7 8-7 8 7 8 7-3 7-8 7"/><path d="M4 12c0 3 2 5 4 6"/></svg></div>
-      <h3>Non-Slip Grip</h3>
-      <p>Silicone grip reduces slipping and rolling as you move.</p>
+    <div class="tfcard reveal">
+      <img src="https://homeszy.com/cdn/shop/files/DM_20260715175718_002.webp" alt="Anti-Slip Silicone Lock">
+      <div class="tf-b">
+        <h3>Anti-Slip Silicone Lock</h3>
+        <p>Stops slipping and rolling, so the brace stays exactly where you put it — even during high-intensity training.</p>
+      </div>
     </div>
   </div>
 </div></div>
@@ -372,6 +395,36 @@
         <p>I wear this compression sleeve often during work. I didn't expect it to be this comfortable. Material is flexible, compression is easy to adjust. I especially love that it sits discreetly under clothing.</p>
         <div class="who">David T. · <span class="verified">Verified buyer</span></div>
       </div>
+    </div>
+  </div>
+</div></div>
+
+<!-- ===== SEE HOW THOUSANDS (UGC) ===== -->
+<div class="seehow"><div class="wrap">
+  <div class="head reveal">
+    <span class="eyebrow">Rated 4.8/5 &middot; Trusted by 11,000+ users</span>
+    <h2>See How Thousands Got Back To The Game</h2>
+  </div>
+  <div class="ugcgrid">
+    <div class="ugccard reveal">
+      <img src="https://homeszy.com/cdn/shop/files/4_9732fe87-124d-4927-94bc-1af4e6f2b208.webp" alt="Customer photo">
+      <div class="u-b"><div class="handle">@sarah_davis</div><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>"I can lift my kids again without knee pain — amazing support!"</p></div>
+    </div>
+    <div class="ugccard reveal">
+      <img src="https://homeszy.com/cdn/shop/files/1_6cd875b5-c5e9-4053-90bd-3d198c92c4b4.webp" alt="Customer photo">
+      <div class="u-b"><div class="handle">@robert_wilson</div><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>"Playing beach soccer with my kids again — no more stiffness!"</p></div>
+    </div>
+    <div class="ugccard reveal">
+      <img src="https://homeszy.com/cdn/shop/files/2_9d0dbb2e-c1b8-4ba8-85de-96af7bdbd322.webp" alt="Customer photo">
+      <div class="u-b"><div class="handle">@linda_martinez</div><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>"Survived 12-hour shifts on construction — knees feel great!"</p></div>
+    </div>
+    <div class="ugccard reveal">
+      <img src="https://homeszy.com/cdn/shop/files/7_7c29e425-9cba-42dc-8974-74423f3cdbe7_1.webp" alt="Customer photo">
+      <div class="u-b"><div class="handle">@james_anderson</div><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>"Hiking trails feel easier now — warmth and stability combined!"</p></div>
+    </div>
+    <div class="ugccard reveal">
+      <img src="https://homeszy.com/cdn/shop/files/3_6641a256-ad03-4e3a-8d1f-67a610da327d.webp" alt="Customer photo">
+      <div class="u-b"><div class="handle">@patricia_lee</div><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><p>"Running on the treadmill pain-free — no more morning stiffness!"</p></div>
     </div>
   </div>
 </div></div>

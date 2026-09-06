@@ -1,124 +1,192 @@
 <style>.product-form__input input[type='radio']:checked + label{background-color:#000 !important;color:#fff !important;border-color:#000 !important;box-shadow:0 0 0 1px #000 !important}.product-form__input input[type='radio']:not(:disabled):not(.disabled) + label:hover{border-color:#000 !important}</style>
 <div class="clp">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 .clp{
-  --ink:#132a36; --body:#42555f; --muted:#6b8290;
-  --line:#e4edf1; --soft:#f3f8fa; --card:#ffffff;
-  --accent:#0e7490; --accent-dark:#0c5f77; --accent-soft:#e2f1f5;
-  --gold:#e0a500; --red:#c0392b;
-  --radius:16px;
+  --ink:#0f2a34; --body:#465a64; --muted:#6b8290;
+  --line:#e6eef2; --soft:#f4f9fb; --card:#ffffff;
+  --accent:#0e7490; --accent-2:#0891b2; --accent-dark:#0c5f77; --accent-soft:#e2f1f5;
+  --gold:#f0a800; --green:#0f9d6b;
+  --radius:18px; --shadow:0 10px 34px rgba(15,42,52,.08);
   font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
   color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;
 }
 .clp *{box-sizing:border-box;margin:0;padding:0}
 .clp img{max-width:100%;display:block}
-.clp .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
-.clp .eyebrow{display:inline-block;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
-.clp h2{font-size:31px;line-height:1.2;font-weight:800;letter-spacing:-.6px;color:var(--ink);margin-bottom:18px}
-@media(max-width:900px){.clp h2{font-size:25px}}
+.clp .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.clp .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.clp .eyebrow:before{content:"";width:22px;height:2px;background:var(--accent);border-radius:2px}
+.clp h2{font-family:'Sora',sans-serif;font-size:33px;line-height:1.18;font-weight:700;letter-spacing:-.7px;color:var(--ink);margin-bottom:18px}
+@media(max-width:900px){.clp h2{font-size:26px}}
+.clp .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.clp .reveal.in{opacity:1;transform:none}
+
+/* ---------- HERO ---------- */
+.clp-hero{position:relative;overflow:hidden;background:
+   radial-gradient(120% 120% at 85% 0%,#12586b 0%,#0d3f50 45%,#0a2e3b 100%);
+   color:#eaf6f9;padding:76px 0 70px;text-align:center}
+.clp-hero:before,.clp-hero:after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.clp-hero:before{width:360px;height:360px;top:-120px;right:-90px;background:radial-gradient(circle,rgba(8,145,178,.35),transparent 70%)}
+.clp-hero:after{width:300px;height:300px;bottom:-140px;left:-100px;background:radial-gradient(circle,rgba(240,168,0,.14),transparent 70%)}
+.clp-hero .wrap{position:relative;z-index:2;max-width:800px}
+.clp-hero .eyebrow{color:#7fd6e8;justify-content:center}
+.clp-hero .eyebrow:before{background:#7fd6e8}
+.clp-hero .rate{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);padding:7px 15px;border-radius:100px;font-size:13px;font-weight:600;margin-bottom:20px;backdrop-filter:blur(4px)}
+.clp-hero .rate .stars{color:var(--gold);letter-spacing:1px;font-size:14px}
+.clp-hero h1{font-family:'Sora',sans-serif;font-size:46px;line-height:1.1;font-weight:800;letter-spacing:-1.2px;color:#fff;margin-bottom:18px}
+.clp-hero h1 em{font-style:normal;color:#7fd6e8}
+@media(max-width:900px){.clp-hero{padding:56px 0 52px}.clp-hero h1{font-size:32px}}
+.clp-hero p.sub{font-size:17.5px;line-height:1.6;color:#cfe6ec;max-width:600px;margin:0 auto 26px}
+.clp-hero .chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.clp-hero .chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:9px 16px;border-radius:100px;font-size:14px;font-weight:600;color:#eaf6f9}
+.clp-hero .chip svg{width:16px;height:16px;stroke:#7fd6e8;flex-shrink:0}
 
 /* ---------- STORY SECTIONS ---------- */
 .clp .story{padding:0}
-.clp .story .wrap{padding:0 20px}
+.clp .story .wrap{padding:0 22px}
 .clp .srow{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:center}
 @media(max-width:900px){.clp .srow{grid-template-columns:1fr}}
 .clp .story p{color:var(--body);margin-bottom:14px;font-size:16.5px}
 .clp .story ul{list-style:none;margin:0 0 18px}
-.clp .story ul li{position:relative;padding-left:26px;margin-bottom:10px;color:var(--body)}
-.clp .story ul li:before{content:"";position:absolute;left:6px;top:11px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.clp .story ul li{position:relative;padding-left:28px;margin-bottom:11px;color:var(--body)}
+.clp .story ul li:before{content:"";position:absolute;left:5px;top:10px;width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.clp .story .img{position:relative}
 .clp .story .img img{width:100%;aspect-ratio:1/1;object-fit:cover}
-.clp .story .txt{padding:46px 44px;order:2}
+.clp .story .txt{padding:56px 52px}
+.clp .story .txt{order:2}
 .clp .srow.rev .txt{order:0}
-@media(max-width:900px){.clp .story .txt{padding:30px 4px 38px;order:2}.clp .srow.rev .txt{order:2}}
-.clp .checks li{padding-left:28px}
-.clp .checks li:before{content:"\2713";position:absolute;left:0;top:0;background:none;color:var(--accent);font-weight:900;font-size:16px;width:auto;height:auto}
-.clp .pull{background:var(--accent-soft);border-left:4px solid var(--accent);padding:16px 20px;border-radius:0 12px 12px 0;font-weight:600;color:var(--ink);margin-top:6px}
+@media(max-width:900px){.clp .story .txt{padding:34px 4px 40px;order:2}.clp .srow.rev .txt{order:2}}
+.clp .checks li{padding-left:30px}
+.clp .checks li:before{content:"";position:absolute;left:0;top:3px;width:18px;height:18px;border-radius:50%;background:var(--accent);box-shadow:none;
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/12px no-repeat, radial-gradient(circle,#000 100%);
+  mask:none}
+.clp .checks li:after{content:"\2713";position:absolute;left:4px;top:1px;color:#fff;font-size:11px;font-weight:900}
+.clp .pull{background:var(--accent-soft);border-left:4px solid var(--accent);padding:16px 20px;border-radius:0 12px 12px 0;font-weight:600;color:var(--ink);margin-top:8px}
+
+/* ---------- BENEFITS STRIP ---------- */
+.clp .benefits{padding:66px 0 10px}
+.clp .benefits .head{text-align:center;max-width:640px;margin:0 auto 40px}
+.clp .benefits .head .eyebrow{justify-content:center}
+.clp .benefits .head p{color:var(--muted);font-size:16px}
+.clp .bgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:900px){.clp .bgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.clp .bgrid{grid-template-columns:1fr;max-width:360px;margin:0 auto}}
+.clp .bcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 22px;text-align:center;transition:transform .25s,box-shadow .25s,border-color .25s}
+.clp .bcard:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--accent-soft)}
+.clp .bcard .ic{width:56px;height:56px;margin:0 auto 16px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent-soft),#fff);border:1px solid var(--accent-soft)}
+.clp .bcard .ic svg{width:26px;height:26px;stroke:var(--accent);fill:none}
+.clp .bcard h3{font-family:'Sora',sans-serif;font-size:16.5px;font-weight:700;margin-bottom:8px;color:var(--ink)}
+.clp .bcard p{font-size:14px;color:var(--body);line-height:1.55}
 
 /* ---------- TRUST BAND ---------- */
-.clp .trust{background:var(--ink);padding:30px 0}
-.clp .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center}
-@media(max-width:700px){.clp .trust-grid{grid-template-columns:1fr;gap:16px}}
-.clp .trust-item{color:#dced f4;color:#dcedf4}
-.clp .trust-item .ti-ic{font-size:26px;margin-bottom:6px;line-height:1}
-.clp .trust-item b{display:block;color:#fff;font-size:15.5px;font-weight:700}
+.clp .trust{background:linear-gradient(135deg,#0f2a34,#123b48);padding:34px 0;margin-top:64px}
+.clp .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:700px){.clp .trust-grid{grid-template-columns:1fr;gap:20px}}
+.clp .trust-item{display:flex;align-items:center;gap:15px;justify-content:center}
+.clp .trust-item .ti-ic{width:46px;height:46px;flex-shrink:0;border-radius:12px;background:rgba(127,214,232,.12);display:grid;place-items:center}
+.clp .trust-item .ti-ic svg{width:24px;height:24px;stroke:#7fd6e8;fill:none}
+.clp .trust-item b{display:block;color:#fff;font-size:15.5px;font-weight:700;font-family:'Sora',sans-serif}
 .clp .trust-item span{font-size:13px;color:#9fc0cf}
 
 /* ---------- COMPARE ---------- */
-.clp .compare{background:var(--soft);padding:64px 0}
+.clp .compare{background:var(--soft);padding:70px 0}
 .clp .compare h2{text-align:center}
-.clp table.cmp{width:100%;border-collapse:collapse;background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 20px rgba(19,42,54,.06)}
-.clp table.cmp th,.clp table.cmp td{padding:17px 20px;text-align:left;border-bottom:1px solid var(--line);font-size:15px}
-.clp table.cmp th{background:var(--ink);color:#fff;font-weight:600;font-size:14px}
+.clp table.cmp{width:100%;border-collapse:collapse;background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.clp table.cmp th,.clp table.cmp td{padding:17px 22px;text-align:left;border-bottom:1px solid var(--line);font-size:15px}
+.clp table.cmp th{background:linear-gradient(135deg,#0f2a34,#123b48);color:#fff;font-weight:600;font-size:14px;font-family:'Sora',sans-serif}
+.clp table.cmp th:nth-child(2){color:#7fd6e8}
 .clp table.cmp th:nth-child(2),.clp table.cmp td:nth-child(2),
 .clp table.cmp th:nth-child(3),.clp table.cmp td:nth-child(3){text-align:center;width:130px}
-.clp table.cmp td:nth-child(2){color:var(--accent);font-size:19px;font-weight:800}
-.clp table.cmp td:nth-child(3){color:#c6d5dc;font-size:19px;font-weight:800}
+.clp table.cmp td:nth-child(1){font-weight:500;color:var(--ink)}
+.clp table.cmp td .yes,.clp table.cmp td .no{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;font-size:14px;font-weight:800}
+.clp table.cmp td .yes{background:rgba(15,157,107,.12);color:var(--green)}
+.clp table.cmp td .no{background:rgba(192,57,43,.1);color:#c0392b}
 .clp table.cmp tr:last-child td{border-bottom:none}
 .clp table.cmp tbody tr:nth-child(even){background:#fafcfd}
 .clp .cmp-wrap{overflow-x:auto;max-width:820px;margin:0 auto}
 
 /* ---------- REVIEWS ---------- */
-.clp .reviews{padding:64px 0}
-.clp .rv-head{text-align:center;margin-bottom:40px}
+.clp .reviews{padding:70px 0}
+.clp .rv-head{text-align:center;margin-bottom:44px}
 .clp .stars{color:var(--gold);letter-spacing:2px}
 .clp .rv-head .stars{font-size:22px}
 .clp .rv-head h2{margin-top:10px}
 .clp .rv-head p{color:var(--muted);font-size:15px;margin-top:6px}
-.clp .rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.clp .rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 @media(max-width:900px){.clp .rv-grid{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
-.clp .rv{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);overflow:hidden;transition:transform .2s,box-shadow .2s}
-.clp .rv:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(19,42,54,.1)}
+.clp .rv{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);overflow:hidden;transition:transform .25s,box-shadow .25s}
+.clp .rv:hover{transform:translateY(-5px);box-shadow:0 16px 38px rgba(15,42,52,.12)}
 .clp .rv .ph{position:relative}
-.clp .rv .ph img{border-radius:0}
 .clp .rv img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.clp .rv .badge{position:absolute;top:12px;left:12px;display:inline-flex;align-items:center;gap:5px;background:rgba(15,157,107,.95);color:#fff;font-size:11px;font-weight:700;padding:5px 10px;border-radius:100px}
+.clp .rv .badge svg{width:12px;height:12px;stroke:#fff;fill:none}
 .clp .rv .quote{z-index:2;position:absolute;right:16px;bottom:-19px;width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:22px;font-weight:800;line-height:1;box-shadow:0 4px 12px rgba(14,116,144,.35)}
 .clp .rv .body{padding:30px 22px 24px;text-align:center}
-.clp .rv h3{font-size:17.5px;font-weight:700;margin-bottom:9px;color:var(--ink)}
+.clp .rv .body .stars{font-size:15px}
+.clp .rv h3{font-family:'Sora',sans-serif;font-size:17px;font-weight:700;margin:8px 0 9px;color:var(--ink)}
 .clp .rv p{font-size:14.5px;color:var(--body);margin-bottom:16px}
 .clp .rv .who{font-size:13px;font-weight:700;color:var(--ink)}
 .clp .rv .verified{font-size:11.5px;color:var(--accent);font-weight:600}
 
-/* ---------- FAQ ---------- */
-.clp .faq{background:var(--soft);padding:64px 0}
-.clp .faq h2{text-align:center;margin-bottom:34px}
-.clp .acc{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
-.clp .item{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:box-shadow .2s}
-.clp .item.open{box-shadow:0 6px 20px rgba(19,42,54,.07)}
-.clp .q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:19px 22px;background:none;border:none;text-align:left;font-family:inherit;font-size:16px;font-weight:600;color:var(--ink);cursor:pointer}
-.clp .q .ic{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:16px;font-weight:700;transition:transform .25s}
-.clp .item.open .q .ic{transform:rotate(45deg)}
-.clp .a{max-height:0;overflow:hidden;transition:max-height .3s ease}
-.clp .a p{padding:0 22px 20px;color:var(--body);font-size:15px}
-.clp .a p+p{padding-top:0}
-
 /* ---------- GUARANTEE BAND ---------- */
-.clp .guarantee{padding:60px 0;text-align:center}
-.clp .guarantee .wrap{max-width:720px}
-.clp .g-badge{display:inline-grid;place-items:center;width:96px;height:96px;border-radius:50%;background:var(--accent-soft);color:var(--accent);border:2px solid var(--accent);margin-bottom:20px}
-.clp .g-badge b{font-size:24px;font-weight:900;line-height:1}
+.clp .guarantee{padding:74px 0}
+.clp .guarantee .wrap{max-width:760px}
+.clp .g-inner{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:48px 40px;text-align:center;position:relative;overflow:hidden}
+.clp .g-inner:before{content:"";position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:var(--accent-soft);opacity:.6}
+.clp .g-inner>*{position:relative;z-index:2}
+.clp .g-badge{display:inline-grid;place-items:center;width:104px;height:104px;border-radius:50%;background:radial-gradient(circle,#fff,var(--accent-soft));color:var(--accent);border:2px solid var(--accent);margin-bottom:22px;box-shadow:0 8px 22px rgba(14,116,144,.18)}
+.clp .g-badge b{font-family:'Sora',sans-serif;font-size:26px;font-weight:800;line-height:1}
 .clp .g-badge span{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
 .clp .guarantee h2{margin-bottom:14px}
 .clp .guarantee p{color:var(--body);font-size:16px}
 .clp .guarantee a{color:var(--accent-dark);font-weight:600}
 
+/* ---------- FAQ ---------- */
+.clp .faq{background:var(--soft);padding:70px 0}
+.clp .faq h2{text-align:center;margin-bottom:34px}
+.clp .faq .eyebrow{justify-content:center}
+.clp .acc{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.clp .item{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:box-shadow .2s,border-color .2s}
+.clp .item.open{box-shadow:var(--shadow);border-color:var(--accent-soft)}
+.clp .q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:20px 24px;background:none;border:none;text-align:left;font-family:'Sora',sans-serif;font-size:16px;font-weight:600;color:var(--ink);cursor:pointer}
+.clp .q .ic{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:17px;font-weight:700;transition:transform .25s}
+.clp .item.open .q .ic{transform:rotate(45deg)}
+.clp .a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.clp .a p{padding:0 24px 20px;color:var(--body);font-size:15px}
+.clp .a p+p{padding-top:0}
+
 /* ---------- SALES POPUP ---------- */
-.clp-pop{visibility:hidden;pointer-events:none;position:fixed;left:20px;bottom:24px;z-index:9998;display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e4edf1;border-radius:14px;padding:11px 15px 11px 11px;box-shadow:0 10px 30px rgba(19,42,54,.16);max-width:330px;transform:translateY(150%);transition:transform .45s cubic-bezier(.2,.8,.3,1);font-family:'Inter',Arial,sans-serif}
+.clp-pop{visibility:hidden;pointer-events:none;position:fixed;left:20px;bottom:24px;z-index:9998;display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e6eef2;border-radius:14px;padding:11px 15px 11px 11px;box-shadow:0 14px 38px rgba(15,42,52,.18);max-width:335px;transform:translateY(160%);transition:transform .5s cubic-bezier(.2,.8,.3,1);font-family:'Inter',Arial,sans-serif}
 .clp-pop.show{transform:translateY(0);visibility:visible;pointer-events:auto}
-.clp-pop img{width:48px;height:48px;border-radius:10px;object-fit:cover}
+.clp-pop img{width:50px;height:50px;border-radius:10px;object-fit:cover}
 .clp-pop .t{font-size:13px;line-height:1.4}
-.clp-pop .t b{display:block;font-size:13.5px;font-weight:700;color:#132a36}
+.clp-pop .t b{display:block;font-size:13.5px;font-weight:700;color:#0f2a34}
 .clp-pop .t span{display:block;color:#6b8290;font-size:12px;line-height:1.4}
 .clp-pop .t .place{color:#0c5f77;font-weight:600;font-size:12px}
-.clp-pop .x{margin-left:auto;background:none;border:none;color:#6b8290;font-size:18px;cursor:pointer;line-height:1}
+.clp-pop .t .meta{display:flex;align-items:center;gap:5px}
+.clp-pop .t .meta:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(15,157,107,.18);flex-shrink:0}
+.clp-pop .x{align-self:flex-start;background:none;border:none;color:#9fb0b8;font-size:18px;cursor:pointer;line-height:1;padding:0 0 0 4px}
 /* raised on mobile so it never covers the sticky price / add-to-cart bar */
-@media(max-width:560px){.clp-pop{left:12px;right:12px;max-width:none;bottom:80px}}
+@media(max-width:560px){.clp-pop{left:12px;right:12px;max-width:none;bottom:84px}}
 </style>
+
+<!-- ===== HERO ===== -->
+<div class="clp-hero"><div class="wrap">
+  <span class="eyebrow">Daily Knee Support</span>
+  <div class="rate"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Rated 4.8/5 by 10,000+ customers</div>
+  <h1>Move through your day with <em>steady, comfortable</em> knees</h1>
+  <p class="sub">A flexible compression sleeve engineered for real life — adjustable support, gentle stabilization and all-day comfort, without bulky rigid braces.</p>
+  <div class="chips">
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Adjustable compression</span>
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Non-slip all-day fit</span>
+    <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Discreet under clothing</span>
+  </div>
+</div></div>
 
 <!-- ===== STORY SECTIONS ===== -->
 <div class="story"><div class="wrap"><div class="srow">
-  <div class="txt">
+  <div class="txt reveal">
     <span class="eyebrow">The Everyday Struggle</span>
     <h2>When every step feels uncomfortable</h2>
     <p>At first, you may only feel mild pulling discomfort.</p>
@@ -132,11 +200,11 @@
     <p>Many people naturally start avoiding certain movements. They walk slower, unconsciously shift weight away from the knee, or feel unsteady during daily activities.</p>
     <div class="pull">The challenge: the more cautiously you move, the more your knee discomfort occupies your daily life.</div>
   </div>
-  <div class="img"><img src="https://homeszy.com/cdn/shop/files/DM_20260715175718_002.webp" alt="Knee discomfort during daily movement"></div>
+  <div class="img reveal"><img src="https://homeszy.com/cdn/shop/files/DM_20260715175718_002.webp" alt="Knee discomfort during daily movement"></div>
 </div></div></div>
 
 <div class="story"><div class="wrap"><div class="srow rev">
-  <div class="txt">
+  <div class="txt reveal">
     <span class="eyebrow">Understanding The Cause</span>
     <h2>It may be more than simple joint wear</h2>
     <p>Most explanations only focus on general joint wear. But knee discomfort often feels like pressure, irritation or unstable support.</p>
@@ -150,11 +218,11 @@
     </ul>
     <p>Many traditional knee braces rely on rigid stabilization. However, rigid braces can feel uncomfortable, slip out of position, or limit natural movement. That is why this knee support adopts a different design concept.</p>
   </div>
-  <div class="img"><img src="https://homeszy.com/cdn/shop/files/DM_20260715175718_003.webp" alt="Knee anatomy and support concept"></div>
+  <div class="img reveal"><img src="https://homeszy.com/cdn/shop/files/DM_20260715175718_003.webp" alt="Knee anatomy and support concept"></div>
 </div></div></div>
 
 <div class="story"><div class="wrap"><div class="srow">
-  <div class="txt">
+  <div class="txt reveal">
     <span class="eyebrow">The Solution</span>
     <h2>Support for active daily knees</h2>
     <p>This knee sleeve integrates multiple functions into a flexible support system suitable for daily wear. Instead of bulky rigid orthoses, you get:</p>
@@ -166,11 +234,11 @@
     </ul>
     <p>Its design goal is not to fully lock and immobilize your knee. This knee support delivers gentle, reliable knee support for daily activities — walking, working, shopping and daily outings.</p>
   </div>
-  <div class="img"><img src="https://homeszy.com/cdn/shop/files/3_6641a256-ad03-4e3a-8d1f-67a610da327d.webp" alt="Flexible knee support system"></div>
+  <div class="img reveal"><img src="https://homeszy.com/cdn/shop/files/3_6641a256-ad03-4e3a-8d1f-67a610da327d.webp" alt="Flexible knee support system"></div>
 </div></div></div>
 
 <div class="story"><div class="wrap"><div class="srow rev">
-  <div class="txt">
+  <div class="txt reveal">
     <span class="eyebrow">Engineered To Perform</span>
     <h2>4 core functions for enhanced stability</h2>
     <p>This knee support combines multiple support systems working together:</p>
@@ -182,11 +250,11 @@
     </ul>
     <div class="pull">The result: stable, comfortable fit for all-day daily use.</div>
   </div>
-  <div class="img"><img src="https://homeszy.com/cdn/shop/files/1_78704983-5733-411c-bb04-4ad9fa4754ab_1.webp" alt="Four core functions of the knee sleeve"></div>
+  <div class="img reveal"><img src="https://homeszy.com/cdn/shop/files/1_78704983-5733-411c-bb04-4ad9fa4754ab_1.webp" alt="Four core functions of the knee sleeve"></div>
 </div></div></div>
 
 <div class="story"><div class="wrap"><div class="srow">
-  <div class="txt">
+  <div class="txt reveal">
     <span class="eyebrow">Made For Real Life</span>
     <h2>Greater convenience for daily life</h2>
     <p>Many people do not want bulky sport braces. They simply want to:</p>
@@ -198,41 +266,69 @@
     </ul>
     <p>This knee sleeve is engineered to make daily movement more comfortable without unnecessary movement restrictions. Flexible material adapts to daily activity and delivers targeted knee support exactly where you need it.</p>
   </div>
-  <div class="img"><img src="https://homeszy.com/cdn/shop/files/7_7c29e425-9cba-42dc-8974-74423f3cdbe7_1.webp" alt="Everyday convenience"></div>
+  <div class="img reveal"><img src="https://homeszy.com/cdn/shop/files/7_7c29e425-9cba-42dc-8974-74423f3cdbe7_1.webp" alt="Everyday convenience"></div>
 </div></div></div>
+
+<!-- ===== BENEFITS STRIP ===== -->
+<div class="benefits"><div class="wrap">
+  <div class="head reveal">
+    <span class="eyebrow">Why It Works</span>
+    <h2>Four systems, one comfortable fit</h2>
+    <p>Every detail is designed to keep you supported and moving comfortably throughout the day.</p>
+  </div>
+  <div class="bgrid">
+    <div class="bcard reveal">
+      <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <h3>Precision Dial</h3>
+      <p>Adjust the compression to the exact level of support that feels right.</p>
+    </div>
+    <div class="bcard reveal">
+      <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <h3>Patella Gel Pad</h3>
+      <p>Cushions and distributes pressure gently around the kneecap.</p>
+    </div>
+    <div class="bcard reveal">
+      <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18M18 3v18"/><path d="M6 8h12M6 16h12"/></svg></div>
+      <h3>Side Stabilizers</h3>
+      <p>Dual supports steady the knee during everyday movement.</p>
+    </div>
+    <div class="bcard reveal">
+      <div class="ic"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12s3-7 8-7 8 7 8 7-3 7-8 7"/><path d="M4 12c0 3 2 5 4 6"/></svg></div>
+      <h3>Non-Slip Grip</h3>
+      <p>Silicone grip reduces slipping and rolling as you move.</p>
+    </div>
+  </div>
+</div></div>
 
 <!-- ===== TRUST BAND ===== -->
 <div class="trust"><div class="wrap trust-grid">
   <div class="trust-item">
-    <div class="ti-ic">&#128666;</div>
-    <b>Free Shipping</b>
-    <span>On every order</span>
+    <div class="ti-ic"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="13" height="10" rx="1.5"/><path d="M14 9h4l3 3v4h-7z"/><circle cx="6" cy="18" r="1.8"/><circle cx="18" cy="18" r="1.8"/></svg></div>
+    <div><b>Free Shipping</b><span>On every order</span></div>
   </div>
   <div class="trust-item">
-    <div class="ti-ic">&#128176;</div>
-    <b>60-Day Money-Back</b>
-    <span>Risk-free guarantee</span>
+    <div class="ti-ic"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+    <div><b>60-Day Money-Back</b><span>Risk-free guarantee</span></div>
   </div>
   <div class="trust-item">
-    <div class="ti-ic">&#128172;</div>
-    <b>24/7 Support</b>
-    <span>We're here to help</span>
+    <div class="ti-ic"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4L3 21l1.1-4.5A8.4 8.4 0 1 1 21 11.5z"/></svg></div>
+    <div><b>24/7 Support</b><span>We're here to help</span></div>
   </div>
 </div></div>
 
 <!-- ===== COMPARISON ===== -->
 <div class="compare"><div class="wrap">
-  <span class="eyebrow" style="display:block;text-align:center">Why Choose Us</span>
-  <h2 style="margin-bottom:32px">The difference is noticeable</h2>
-  <div class="cmp-wrap">
+  <span class="eyebrow reveal" style="display:block;text-align:center">Why Choose Us</span>
+  <h2 class="reveal" style="margin-bottom:32px">The difference is noticeable</h2>
+  <div class="cmp-wrap reveal">
     <table class="cmp">
       <thead><tr><th>Feature</th><th>Cartelo</th><th>Others</th></tr></thead>
       <tbody>
-        <tr><td>Adjustable compression</td><td>&#10003;</td><td>&#10007;</td></tr>
-        <tr><td>Patella gel pads</td><td>&#10003;</td><td>&#10007;</td></tr>
-        <tr><td>Side stabilizers</td><td>&#10003;</td><td>&#10007;</td></tr>
-        <tr><td>Non-slip grip</td><td>&#10003;</td><td>&#10007;</td></tr>
-        <tr><td>Suitable for all-day daily wear</td><td>&#10003;</td><td>&#10007;</td></tr>
+        <tr><td>Adjustable compression</td><td><span class="yes">&#10003;</span></td><td><span class="no">&#10007;</span></td></tr>
+        <tr><td>Patella gel pads</td><td><span class="yes">&#10003;</span></td><td><span class="no">&#10007;</span></td></tr>
+        <tr><td>Side stabilizers</td><td><span class="yes">&#10003;</span></td><td><span class="no">&#10007;</span></td></tr>
+        <tr><td>Non-slip grip</td><td><span class="yes">&#10003;</span></td><td><span class="no">&#10007;</span></td></tr>
+        <tr><td>Suitable for all-day daily wear</td><td><span class="yes">&#10003;</span></td><td><span class="no">&#10007;</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -240,14 +336,16 @@
 
 <!-- ===== REVIEWS ===== -->
 <div class="reviews"><div class="wrap">
-  <div class="rv-head">
+  <div class="rv-head reveal">
     <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
     <h2>Loved by 10,000+ Customers</h2>
     <p>Real results from people who wear it every day</p>
   </div>
   <div class="rv-grid">
-    <div class="rv">
-      <div class="ph"><img src="https://homeszy.com/cdn/shop/files/4_9732fe87-124d-4927-94bc-1af4e6f2b208.webp" alt="Customer photo"><span class="quote">&#8221;</span></div>
+    <div class="rv reveal">
+      <div class="ph"><img src="https://homeszy.com/cdn/shop/files/4_9732fe87-124d-4927-94bc-1af4e6f2b208.webp" alt="Customer photo">
+        <span class="badge"><svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Verified</span>
+        <span class="quote">&#8221;</span></div>
       <div class="body">
         <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <h3>Finally walking more steadily</h3>
@@ -255,8 +353,10 @@
         <div class="who">Caroline S. · <span class="verified">Verified buyer</span></div>
       </div>
     </div>
-    <div class="rv">
-      <div class="ph"><img src="https://homeszy.com/cdn/shop/files/1_6cd875b5-c5e9-4053-90bd-3d198c92c4b4.webp" alt="Customer photo"><span class="quote">&#8221;</span></div>
+    <div class="rv reveal">
+      <div class="ph"><img src="https://homeszy.com/cdn/shop/files/1_6cd875b5-c5e9-4053-90bd-3d198c92c4b4.webp" alt="Customer photo">
+        <span class="badge"><svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Verified</span>
+        <span class="quote">&#8221;</span></div>
       <div class="body">
         <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <h3>Better stability on stairs</h3>
@@ -264,8 +364,10 @@
         <div class="who">Sarah K. · <span class="verified">Verified buyer</span></div>
       </div>
     </div>
-    <div class="rv">
-      <div class="ph"><img src="https://homeszy.com/cdn/shop/files/2_9d0dbb2e-c1b8-4ba8-85de-96af7bdbd322.webp" alt="Customer photo"><span class="quote">&#8221;</span></div>
+    <div class="rv reveal">
+      <div class="ph"><img src="https://homeszy.com/cdn/shop/files/2_9d0dbb2e-c1b8-4ba8-85de-96af7bdbd322.webp" alt="Customer photo">
+        <span class="badge"><svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Verified</span>
+        <span class="quote">&#8221;</span></div>
       <div class="body">
         <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <h3>Comfortable everyday wear</h3>
@@ -276,12 +378,12 @@
   </div>
 </div></div>
 
-<!-- ===== GUARANTEE BAND (moved above FAQ) ===== -->
-<div class="guarantee"><div class="wrap">
+<!-- ===== GUARANTEE BAND (above FAQ) ===== -->
+<div class="guarantee"><div class="wrap"><div class="g-inner reveal">
   <div class="g-badge"><b>60</b><span>Day</span></div>
   <h2>Try it risk-free for 60 days</h2>
   <p>We're confident you'll love the comfort and support. If it's not right for you, contact us at <a href="mailto:cartelostore12@gmail.com">cartelostore12@gmail.com</a> within 60 days for a full refund.</p>
-</div></div>
+</div></div></div>
 
 <!-- ===== FAQ ===== -->
 <div class="faq"><div class="wrap">
@@ -329,13 +431,24 @@
   <div class="t">
     <b id="clpName">Jennifer M.</b>
     <span id="clpPlace" class="place">Austin, TX · United States 🇺🇸</span>
-    <span id="clpMeta">purchased Knee Sleeve · 4 minutes ago</span>
+    <span id="clpMeta" class="meta">purchased Knee Sleeve · 4 minutes ago</span>
   </div>
   <button class="x" id="clpPopClose" type="button">&times;</button>
 </div>
 
 <script>
 (function(){
+  /* SCROLL REVEAL */
+  var io;
+  if('IntersectionObserver' in window){
+    io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:.14});
+    document.querySelectorAll('.clp .reveal').forEach(function(el){io.observe(el);});
+  }else{
+    document.querySelectorAll('.clp .reveal').forEach(function(el){el.classList.add('in');});
+  }
+
   /* FAQ */
   document.querySelectorAll('.clp .acc .q').forEach(function(btn){
     btn.addEventListener('click', function(){

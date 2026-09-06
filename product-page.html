@@ -485,15 +485,10 @@
   }
   if(cl){cl.addEventListener('click',function(){closed=true;pop.classList.remove('show');});}
 
-  /* Timing: frequent during the first 5 minutes, then once every minute */
-  var FIVE_MIN=5*60*1000, fastTimer;
+  /* Timing: show once first, then once every minute */
   setTimeout(function(){
-    show();
-    fastTimer=setInterval(show,12000);        /* first 5 min: every 12s */
+    show();                    /* first appearance */
+    setInterval(show,60000);   /* then every 1 minute */
   },4000);
-  setTimeout(function(){
-    if(fastTimer) clearInterval(fastTimer);
-    setInterval(show,60000);                   /* after 5 min: every 1 min */
-  },FIVE_MIN);
 })();
 </script>
